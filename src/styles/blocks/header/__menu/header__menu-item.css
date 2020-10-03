@@ -1,4 +1,5 @@
 .header__menu-item {
   margin-right: 32px;
   padding-bottom: 23px;
+  cursor: pointer;
 }

@@ -1,3 +1,11 @@
-.header_dark {
-  --user-border-color: #FFFFFF;
+.header.header_dark {
+  color: #FFFFFF;
+}
+
+.header.header_dark .header__menu-user {
+  border-color: #FFFFFF;
+}
+
+.header.header_dark .header__menu_active {
+  border-color: #FFFFFF;
 }
