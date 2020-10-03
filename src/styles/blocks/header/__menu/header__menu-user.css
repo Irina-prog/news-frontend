@@ -5,3 +5,7 @@
   margin-top: -12px;
   cursor: pointer;
 }
+
+.header__menu-user p {
+  margin: 0;
+}

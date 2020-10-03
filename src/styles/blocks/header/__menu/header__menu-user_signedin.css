@@ -1,0 +1,5 @@
+.header__menu-user_signedin p::after {
+  margin-left: 8px;
+  content: url(../../../../images/signout.svg);
+  vertical-align: middle;
+}

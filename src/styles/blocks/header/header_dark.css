@@ -2,10 +2,10 @@
   color: #FFFFFF;
 }
 
-.header.header_dark .header__menu-user {
+.header.header_dark .header__menu-user, .header.header_dark .header__menu_active {
   border-color: #FFFFFF;
 }
 
-.header.header_dark .header__menu_active {
-  border-color: #FFFFFF;
+.header.header_dark .header__menu-user_signedin p::after {
+  filter: invert(100%) sepia(7%) saturate(26%) hue-rotate(319deg) brightness(108%) contrast(108%);
 }
