@@ -8,6 +8,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 11,
   },
+  ignorePatterns: ['dist', '**/vendor/*'],
   rules: {
     'no-underscore-dangle': 'off',
   },
