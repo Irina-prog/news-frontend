@@ -1,4 +1,6 @@
 @import url(../../node_modules/normalize.css/normalize.css);
 @import url(../vendor/fonts.css);
+@import url(./blocks/content.css);
+@import url(./blocks/header/header.css)
 
 

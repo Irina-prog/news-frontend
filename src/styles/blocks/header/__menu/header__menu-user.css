@@ -1,0 +1,6 @@
+.header__menu-user {
+  border-radius: 100px;
+  border: 1px solid var(--user-border-color);
+  padding: 12px 19px;
+  margin-top: -12px;
+}
