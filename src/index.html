@@ -13,13 +13,14 @@
   <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>">
 </head>
 
-<body class="content">
-  <header class="header">
+<body class="content" style="height: 600px;">
+<header class="header">
     <p class="header__title">NewsExplorer</p>
+    <div class="header__hamburger"></div>
     <ul class="header__menu">
       <li class="header__menu-item header__menu_active">Главная</li>
       <li class="header__menu-item">Сохраненные статьи</li>
-      <li class="header__menu-user header__menu-user_signedin"><p>Грета</p></li>
+      <li class="header__menu-user header__menu-user_signedin"><p class="header__user-text">Грета</p><img class="header__signout-icon" src="<%=require('./images/signout.svg')%>" alt="signout"></li>
     </ul>
   </header>
   <main class="main">

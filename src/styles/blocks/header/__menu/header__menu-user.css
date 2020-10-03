@@ -2,8 +2,11 @@
   border-radius: 100px;
   border: 1px solid #D1D2D6;
   padding: 12px 19px;
-  margin-top: -12px;
+  margin-top: -14px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
 }
 
 .header__menu-user p {

@@ -29,3 +29,10 @@ html, body {
 *, *::before, *::after {
   box-sizing: inherit;
 }
+
+
+@media screen and (max-width : 320px) {
+  .content {
+    margin: 0;
+  }
+}

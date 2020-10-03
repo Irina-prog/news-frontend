@@ -10,3 +10,19 @@
   flex-direction: row;
   align-items: flex-start;
 }
+
+@media screen and (max-width : 320px) {
+  .header__menu {
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      right: 0;
+      background-color: #FFFFFF;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      margin: 1px 0 0 0;
+  }
+}
