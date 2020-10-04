@@ -1,0 +1,30 @@
+.header__navigator.header__navigator_visible-mobile-menu {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.header__navigator.header__navigator_visible-mobile-menu .header__hamburger{
+  background-image: url(../../../images/close.svg);
+}
+
+.header__navigator.header__navigator_visible-mobile-menu .header__menu-item{
+  padding-bottom: 0;
+  margin: 24px 16px;
+}
+
+.header__navigator.header__navigator_visible-mobile-menu .header__menu-item.header__menu_active {
+  border: none;
+}
+
+.header__navigator.header__navigator_visible-mobile-menu .header__menu-user{
+  margin: 16px;
+  justify-content: center;
+}
+
+.header__navigator.header__navigator_visible-mobile-menu .header__menu {
+  display: flex;
+}
+
+.header__navigator.header__navigator_visible-mobile-menu.header_dark, .header__navigator.header__navigator_visible-mobile-menu.header_dark .header__menu{
+  background-color: #1A1B22;
+}

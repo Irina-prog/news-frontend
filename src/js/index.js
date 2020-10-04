@@ -1,15 +1,15 @@
 import '../styles/index.css';
 
 window.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('.header');
+  const headerNavigator = document.querySelector('.header__navigator');
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('header__hamburger')) {
-      header.classList.toggle('header_visible-mobile-menu');
-      if (header.classList.contains('header_visible-mobile-menu')) {
-        document.querySelector('.header__menu').style.top = `${header.clientHeight}px`;
+      headerNavigator.classList.toggle('header__navigator_visible-mobile-menu');
+      if (headerNavigator.classList.contains('header__navigator_visible-mobile-menu')) {
+        document.querySelector('.header__menu').style.top = `${headerNavigator.clientHeight}px`;
       }
     } else {
-      header.classList.remove('header_visible-mobile-menu');
+      headerNavigator.classList.remove('header__navigator_visible-mobile-menu');
     }
   });
 });

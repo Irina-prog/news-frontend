@@ -1,0 +1,16 @@
+.header__navigator {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 19px;
+  padding-bottom: 93px;
+  position: relative;
+}
+
+@media screen and (max-width : 320px) {
+  .header__navigator {
+      align-items: center;
+      padding: 0 16px;
+  }
+}

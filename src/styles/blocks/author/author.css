@@ -1,0 +1,10 @@
+@import url(./__photo/author__photo.css);
+@import url(./__description/author__description.css);
+
+.author {
+  display: grid;
+  grid-template-columns: 464px auto ;
+  /*grid-template-rows: 80px auto 80px; */
+  column-gap: 56px;
+  margin: 80px 0;
+}

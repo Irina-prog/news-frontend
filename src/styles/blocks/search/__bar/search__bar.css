@@ -1,0 +1,13 @@
+@import url(__bar-button/search__bar-button.css);
+@import url(__bar-input/search__bar-input.css);
+
+
+.search__bar {
+  display: flex;
+  flex-direction: row;
+  width: 608px;
+  justify-content: space-between;
+  border-radius: 100px;
+  background: lightblue;
+  align-items: center;
+}

@@ -2,24 +2,6 @@
 @import url(header__hamburger.css);
 @import url(header__signout-icon.css);
 @import url(__menu/header__menu.css);
-@import url(header_dark.css);
-@import url(header_visible-mobile-menu.css);
-
-
-
-.header {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding-top: 30px;
-  padding-bottom: 24px;
-  position: relative;
-}
-
-@media screen and (max-width : 320px) {
-  .header {
-      align-items: center;
-      padding: 0 16px;
-  }
-}
+@import url(header__navigator.css);
+@import url(header__navigator_dark.css);
+@import url(header__navigator_visible-mobile-menu.css);

@@ -7,32 +7,57 @@
   <meta name="description" content="Поиск новостей">
   <meta name="author" content="Irina Belchikova">
   <title>Поиск новостей</title>
-  <link rel="icon"
-      type="image/png"
-      href="<%=require('./images/favicon.png')%>" />
+  <link rel="icon" type="image/png" href="<%=require('./images/favicon.png')%>" />
   <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>">
 </head>
 
-<body class="content" style="height: 600px;">
-<header class="header">
-    <p class="header__title">NewsExplorer</p>
-    <div class="header__hamburger"></div>
-    <ul class="header__menu">
-      <li class="header__menu-item header__menu_active">Главная</li>
-      <li class="header__menu-item">Сохраненные статьи</li>
-      <li class="header__menu-user header__menu-user_signedin"><p class="header__user-text">Грета</p><img class="header__signout-icon" src="<%=require('./images/signout.svg')%>" alt="signout"></li>
-    </ul>
+<body class="content">
+  <header class="header">
+    <section class="header__navigator">
+      <p class="header__title">NewsExplorer</p>
+      <div class="header__hamburger"></div>
+      <ul class="header__menu">
+        <li class="header__menu-item header__menu_active">Главная</li>
+        <li class="header__menu-item">Сохраненные статьи</li>
+        <li class="header__menu-user header__menu-user_signedin">
+          <p class="header__user-text">Грета</p><img class="header__signout-icon"
+            src="<%=require('./images/signout.svg')%>" alt="signout">
+        </li>
+      </ul>
+    </section>
+    <section class="search">
+          <h1 class="search__title">Что творится в мире</h1>
+          <h3 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h3>
+          <div class="search__bar">
+            <form action="" class="search__bar-input">Введите тему новости</form>
+            <button class="search__bar-button">Искать</button>
+          </div>
+        </section>
   </header>
   <main class="main">
 
+    <section class="author">
+      <img src="<%=require('./images/avatar.png')%>" alt="фото автора сайта" class="author__photo">
+      <div class="author__description">
+        <h2 class="author__title">Об авторе</h2>
+        <h3 class="author__subtitle">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы
+          занимаетесь, какими технологиями разработки владеете.
+          Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь
+          потенциальным заказчикам.</h3>
+      </div>
+
+
+    </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2020 Irina Belchikova</p>
     <ul class="footer__links">
       <li class="footer__link "><a href="https://my-dream-news.students.nomoreparties.co">Главная</a></li>
       <li class="footer__link"><a href="https://praktikum.yandex.ru/">Яндекс.Практикум</a></li>
-      <li class="footer__link footer__link_icon"><a href="https://www.github.com/"><img src="<%=require('./images/github.svg')%>" alt="github" ></a></li>
-      <li class="footer__link footer__link_icon"><a href="https://www.facebook.com/"><img src="<%=require('./images/facebook.svg')%>" alt="facebook" ></a></li>
+      <li class="footer__link footer__link_icon"><a href="https://www.github.com/"><img
+            src="<%=require('./images/github.svg')%>" alt="github"></a></li>
+      <li class="footer__link footer__link_icon"><a href="https://www.facebook.com/"><img
+            src="<%=require('./images/facebook.svg')%>" alt="facebook"></a></li>
     </ul>
   </footer>
   <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
