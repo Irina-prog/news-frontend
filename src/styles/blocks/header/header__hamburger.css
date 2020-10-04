@@ -1,8 +1,6 @@
 .header__hamburger{
   display: none;
   content: ' ';
-  width: 24px;
-  height: 24px;
   background-image: url(../../../images/hamburger.svg);
   cursor: pointer;
 }
@@ -10,5 +8,7 @@
 @media screen and (max-width : 320px) {
   .header__hamburger {
       display: block;
+      width: 24px;
+      height: 24px;
   }
 }

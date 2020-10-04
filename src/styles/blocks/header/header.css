@@ -10,5 +10,11 @@
   background-image: url(../../../images/background.jpg);
   background-size: cover;
   padding: 0 104px 80px;
+}
 
+@media screen and (max-width : 320px) {
+  .header {
+      align-items: center;
+      padding: 0;
+  }
 }
