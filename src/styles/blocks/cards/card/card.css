@@ -1,2 +1,8 @@
 @import url(__header/card__header.css);
 @import url(__body/card__body.css);
+
+
+.card {
+  border-radius: 20px;
+  background: #FFFFFF;
+}

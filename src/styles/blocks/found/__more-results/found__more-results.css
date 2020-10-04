@@ -1,0 +1,18 @@
+.found__more-results {
+  background: #FFFFFF;
+  border-radius: 80px;
+  width: 288px;
+  margin: 64px auto 18px;
+  border: none;
+  font-weight: 500;
+  padding: 18px 0 24px 0;
+  cursor: pointer;
+}
+
+.found__more-results:hover {
+  opacity: 0.9;
+}
+
+.found__more-results:focus{
+  outline: 0;
+}

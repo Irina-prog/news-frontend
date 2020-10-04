@@ -8,6 +8,7 @@
 
 .header {
   background-image: url(../../../images/background.jpg);
+  background-size: cover;
   padding: 0 104px 80px;
 
 }
