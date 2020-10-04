@@ -1,1 +1,6 @@
 @import url(__title/found__title.css);
+
+.found {
+  display: grid;
+  justify-content: center;
+}
