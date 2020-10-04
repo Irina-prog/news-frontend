@@ -25,6 +25,6 @@
   display: flex;
 }
 
-.header__navigator.header__navigator_visible-mobile-menu.header_dark, .header__navigator.header__navigator_visible-mobile-menu.header_dark .header__menu{
+.header__navigator.header__navigator_visible-mobile-menu.header__navigator_dark, .header__navigator.header__navigator_visible-mobile-menu.header__navigator_dark .header__menu{
   background-color: #1A1B22;
 }

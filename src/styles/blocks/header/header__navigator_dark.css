@@ -6,6 +6,6 @@
   border-color: #FFFFFF;
 }
 
-.header__navigator.header__navigator_dark .header__hamburger, .header__navigator.header__navigator_dark .header__menu-user_signedin p::after {
+.header__navigator.header__navigator_dark .header__hamburger, .header__navigator.header__navigator_dark .header__menu-user_signedin .header__signout-icon {
   filter: invert(100%) sepia(7%) saturate(26%) hue-rotate(319deg) brightness(108%) contrast(108%);
 }
