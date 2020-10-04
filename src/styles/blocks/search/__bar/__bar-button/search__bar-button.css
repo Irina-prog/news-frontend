@@ -3,5 +3,21 @@
   height: 64px;
   border-radius: 100px;
   background-color: #2F71E5;
+  border: none;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
 
+.search__bar-button:hover{
+  background-color: #347EFF;
+}
+
+.search__bar-button:active{
+  background-color: #2A65CC;
+}
+
+.search__bar-button:focus{
+  outline: 0;
 }
