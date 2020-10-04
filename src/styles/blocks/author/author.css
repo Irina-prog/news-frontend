@@ -3,7 +3,7 @@
 
 .author {
   display: grid;
-  grid-template-columns: 464px auto ;
+  grid-template-columns: 464px 600px ;
   /*grid-template-rows: 80px auto 80px; */
   column-gap: 56px;
   margin: 80px 0;
