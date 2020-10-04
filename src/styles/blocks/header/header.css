@@ -5,3 +5,9 @@
 @import url(header__navigator.css);
 @import url(header__navigator_dark.css);
 @import url(header__navigator_visible-mobile-menu.css);
+
+.header {
+  background-image: url(../../../images/background.jpg);
+  padding: 0 104px 80px;
+
+}
