@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Поиск новостей">
+  <meta name="author" content="Irina Belchikova">
+  <title>Поиск новостей</title>
+  <link rel="icon" type="image/png" href="<%=require('./images/favicon.png')%>" />
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>">
+</head>
+
+<body class="content">
+  <header class="header">
+    <section class="header__navigator">
+      <p class="header__title">NewsExplorer</p>
+      <div class="header__hamburger"></div>
+      <ul class="header__menu">
+        <li class="header__menu-item"><a href="/">Главная</a></li>
+        <li class="header__menu-item header__menu_active"><a href="/bookmarks.html">Сохраненные статьи</a></li>
+        <li class="header__menu-user header__menu-user_signedin">
+          <p class="header__user-text">Грета</p><img class="header__signout-icon"
+            src="<%=require('./images/signout.svg')%>" alt="signout">
+        </li>
+      </ul>
+    </section>
+  </header>
+  <main class="main">
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2020 Irina Belchikova</p>
+    <ul class="footer__links">
+      <li class="footer__link "><a href="/">Главная</a></li>
+      <li class="footer__link"><a href="https://praktikum.yandex.ru/">Яндекс.Практикум</a></li>
+      <li class="footer__link footer__link_icon"><a href="https://www.github.com/"><img
+            src="<%=require('./images/github.svg')%>" alt="github"></a></li>
+      <li class="footer__link footer__link_icon"><a href="https://www.facebook.com/"><img
+            src="<%=require('./images/facebook.svg')%>" alt="facebook"></a></li>
+    </ul>
+  </footer>
+  <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
+</body>
+
+</html>

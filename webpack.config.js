@@ -1,22 +1,18 @@
 /* eslint-disable global-require */
 const path = require('path');
-const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash'); // добавили плагин
-
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// подключаем плагин
+
 const isDev = process.env.NODE_ENV === 'development';
-// создаем переменную для development-сборки
 
 module.exports = {
-  entry: { main: './src/js/index.js' },
+  entry: { main: './src/js/index.js', bookmarks: './src/js/bookmarks.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
   },
-  // указали путь к файлу, в квадратных скобках куда вставлять сгенерированный хеш
   module: {
     rules: [
       {
@@ -56,9 +52,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-    }),
     new MiniCssExtractPlugin({
       filename: 'style.[contenthash].css',
     }),
@@ -69,11 +62,18 @@ module.exports = {
         preset: ['default'],
       },
       canPrint: true,
-    }), // подключите плагин после MiniCssExtractPlugin
+    }),
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/index.html',
       filename: 'index.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: './src/bookmarks.html',
+      filename: 'bookmarks.html',
+      chunks: ['bookmarks'],
     }),
     new WebpackMd5Hash(),
   ],

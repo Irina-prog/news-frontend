@@ -1,4 +1,4 @@
-.header__navigator.header__navigator_dark {
+.header__navigator.header__navigator_dark, .header__navigator.header__navigator_dark .header__menu-item a {
   color: #FFFFFF;
 }
 
