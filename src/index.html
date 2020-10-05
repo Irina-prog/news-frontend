@@ -86,7 +86,11 @@
     </section>
 
     <section class="author">
-      <img src="<%=require('./images/avatar.png')%>" alt="фото автора сайта" class="author__photo">
+      <picture class="author__photo">
+        <source srcset="<%=require('./images/avatar-hdpi.png')%>" media="(min-device-pixel-ratio: 1.5">
+        <img src="<%=require('./images/avatar.png')%>" alt="фото автора сайта">
+       </picture>
+
       <div class="author__description">
         <h2 class="author__title">Об авторе</h2>
         <h3 class="author__subtitle">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы
