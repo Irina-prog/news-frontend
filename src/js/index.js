@@ -10,4 +10,10 @@ window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.search__bar').addEventListener('submit', (e) => {
     e.preventDefault();
   });
+
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('card__bookmark')) {
+      e.target.classList.toggle('card__bookmark_marked');
+    }
+  });
 });
