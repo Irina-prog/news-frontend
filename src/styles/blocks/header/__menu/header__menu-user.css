@@ -12,3 +12,7 @@
 .header__menu-user p {
   margin: 0;
 }
+
+.header__menu-user .header__signout-icon {
+  display: none;
+}

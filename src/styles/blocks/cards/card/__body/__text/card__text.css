@@ -2,4 +2,5 @@
   font-size: 16px;
   line-height: 22px;
   margin: 0 0 18px;
+  flex-grow: 1;
 }

@@ -9,7 +9,13 @@
   border-radius: 8px;
   background-position: center;
   cursor: pointer;
+  z-index: 10;
+  border: none;
 }
 .card__bookmark:hover {
   background-image: url(../../../../../../images/bookmark-hover.svg);
+}
+
+.card__bookmark:focus{
+  outline: 0;
 }
