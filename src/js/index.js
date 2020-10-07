@@ -11,7 +11,27 @@ window.addEventListener('DOMContentLoaded', () => {
     foundMoreResults.style.display = 'none';
   });
 
+  const preloader = document.querySelector('.preloader');
+  const notFound = document.querySelector('.notfound');
+  const found = document.querySelector('.found');
+
+  preloader.style.display = 'none';
+  notFound.style.display = 'none';
+  found.style.display = 'none';
+
   document.querySelector('.search__bar').addEventListener('submit', (e) => {
+    const searchText = e.target.elements[0].value.trim();
+    notFound.style.display = 'none';
+    found.style.display = 'none';
+    preloader.style.display = '';
+    setTimeout(() => {
+      preloader.style.display = 'none';
+      if (searchText.length > 0) {
+        found.style.display = '';
+      } else {
+        notFound.style.display = '';
+      }
+    }, 3000);
     e.preventDefault();
   });
 
