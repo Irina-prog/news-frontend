@@ -7,8 +7,5 @@
 @import url(./blocks/author/author.css);
 @import url(./blocks/found/found.css);
 @import url(./blocks/cards/cards.css);
-@import url(./blocks/preloader/preloader.css)
-
-
-
-
+@import url(./blocks/preloader/preloader.css);
+@import url(./blocks/popup/popup.css);

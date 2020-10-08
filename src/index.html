@@ -19,8 +19,8 @@
       <ul class="header__menu">
         <li class="header__menu-item header__menu_active"><a href="/">Главная</a></li>
         <li class="header__menu-item"><a href="/bookmarks.html">Сохраненные статьи</a></li>
-        <li class="header__menu-user header__menu-user_signedin">
-          <p class="header__user-text">Грета</p><img class="header__signout-icon"
+        <li class="header__menu-user">
+          <p class="header__user-text">Авторизоваться</p><img class="header__signout-icon"
             src="<%=require('./images/signout.svg')%>" alt="signout">
         </li>
       </ul>
@@ -116,6 +116,59 @@
 
     </section>
   </main>
+  <div class="popup" id="register">
+    <div class="popup__content">
+      <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
+      <h3 class="popup__title">Регистрация</h3>
+      <form class="popup__form" name="email">
+        <div class="popup__input-group">
+          <label class="popup__label" for="register-email">Email</label>
+          <input type="email" id="register-email" name="email" class="popup__input popup__input_type_email" required placeholder="Введите свой email">
+          <div class="popup__error"></div>
+        </div>
+        <div class="popup__input-group">
+          <label class="popup__label" for="register-password">Пароль</label>
+          <input type="password" id="register-password" name="password" class="popup__input popup__input_type_password" required placeholder="Введите пароль">
+          <div class="popup__error"></div>
+        </div>
+        <div class="popup__input-group">
+          <label class="popup__label" for="register-name">Имя</label>
+          <input type="text" id="register-name" name="name" class="popup__input popup__input_type_name" required placeholder="Введите своё имя" minlength="2" maxlength="30">
+          <div class="popup__error">Такой пользователь уже есть (демо ошибки)</div>
+        </div>
+        <button type="submit" class="button button_size_is-medium popup__button">Зарегистрироваться</button>
+      </form>
+      <p>или <a href="#" class="popup__link">Войти</a></p>
+    </div>
+  </div>
+  <div class="popup" id="login">
+    <div class="popup__content">
+      <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
+      <h3 class="popup__title">Вход</h3>
+      <form class="popup__form" name="email">
+        <div class="popup__input-group">
+          <label class="popup__label" for="login-email">Email</label>
+          <input type="email" id="login-email" name="email" class="popup__input popup__input_type_email" required placeholder="Введите свой email">
+          <div class="popup__error"></div>
+        </div>
+        <div class="popup__input-group">
+          <label class="popup__label" for="login-password">Пароль</label>
+          <input type="password" id="login-password" name="password" class="popup__input popup__input_type_password" required placeholder="Введите пароль">
+          <div class="popup__error"></div>
+        </div>
+        <button type="submit" class="button button_size_is-medium popup__button">Войти</button>
+      </form>
+      <p>или <a href="#" class="popup__link">Зарегистрироваться</a></p>
+    </div>
+  </div>
+  <div class="popup" id="registered">
+    <div class="popup__content">
+      <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
+      <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+      <p><a href="#" class="popup__link">Войти</a></p>
+    </div>
+  </div>
+
   <footer class="footer">
     <p class="footer__copyright">© 2020 Irina Belchikova</p>
     <ul class="footer__links">
