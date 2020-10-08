@@ -1,0 +1,13 @@
+.popup__bottom-text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin-block-end: 0;
+}
+
+.popup__bottom-text a {
+  color: #2F71E5;
+}

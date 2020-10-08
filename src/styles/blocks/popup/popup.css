@@ -1,13 +1,14 @@
 @import url(./__content/popup__content.css);
-@import url(./__content/popup__content_preview.css);
 @import url(./__close/popup__close.css);
 @import url(./__title/popup__title.css);
+@import url(./__bottom-text/popup__bottom-text.css);
 @import url(./__form/popup__form.css);
+@import url(./__input-group/popup__input-group.css);
 @import url(./__input/popup__input.css);
 @import url(./__input-error/popup__input-error.css);
+@import url(./__label/popup__label.css);
 @import url(./__button/popup__button.css);
 @import url(./_is-opened/popup_is-opened.css);
-@import url(./__img-preview/popup__img-preview.css);
 @import url(./__error/popup__error.css);
 
 .popup {
@@ -21,4 +22,4 @@
   align-items: center;
   justify-content: center;
   display: none;
-  }
+}

@@ -92,4 +92,5 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('.header__menu li')[1].style.display = 'none';
+  registerPopup.classList.add('popup_is-opened');
 });

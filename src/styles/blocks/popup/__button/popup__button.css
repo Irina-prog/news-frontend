@@ -1,15 +1,19 @@
 .popup__button {
   width: 100%;
-  height: 50px;
-  border: 1px solid rgb(0, 0, 0);
-  margin-top: 48px;
-  color: #FFFFFF;
+  height: 64px;
+  border-radius: 100px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
   font-size: 18px;
-  background-color: #000000;
+  line-height: 24px;
+  border: none;
+  background: #2F71E5;
+  color: #FFFFFF;
+  margin-top: 20px;
 }
 
 .popup__button:disabled {
-  color: rgba(0, 0, 0, .2);
-  background: #e9e9e9;
-  border: 1px solid rgba(0, 0, 0, .2);
+  background: #E6E8EB;
+  color: #B6BCBF;
 }

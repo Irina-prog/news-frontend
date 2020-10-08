@@ -137,9 +137,9 @@
           <p class="popup__input-error"></p>
         </div>
         <p class="popup__error">Такой пользователь уже есть</p>
-        <button type="submit" class="button button_size_is-medium popup__button">Зарегистрироваться</button>
+        <button type="submit" class="popup__button">Зарегистрироваться</button>
       </form>
-      <p>или <a href="#" class="popup__link">Войти</a></p>
+      <p class="popup__bottom-text">или <a href="#" class="popup__link">Войти</a></p>
     </div>
   </div>
   <div class="popup" id="login">
@@ -158,16 +158,16 @@
           <p class="popup__input-error"></p>
         </div>
         <p class="popup__error"></p>
-        <button type="submit" class="button button_size_is-medium popup__button">Войти</button>
+        <button type="submit" class="popup__button">Войти</button>
       </form>
-      <p>или <a href="#" class="popup__link">Зарегистрироваться</a></p>
+      <p class="popup__bottom-text">или <a href="#" class="popup__link">Зарегистрироваться</a></p>
     </div>
   </div>
   <div class="popup" id="registered">
     <div class="popup__content">
       <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
       <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-      <p><a href="#" class="popup__link">Войти</a></p>
+      <p class="popup__bottom-text"><a href="#" class="popup__link">Войти</a></p>
     </div>
   </div>
 
