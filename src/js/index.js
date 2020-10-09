@@ -71,6 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 5000);
       }
     }
+
     if (e.target.classList.contains('popup__close')) {
       hidePopup(e.target.closest('.popup'));
     }
@@ -127,11 +128,9 @@ window.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.header__menu li')[1].style.display = 'none';
 
   [registerForm, loginForm].forEach((form) => {
-    form.addEventListener('change', () => {
+    form.addEventListener('input', () => {
       const isValid = form.reportValidity();
-      form.querySelector('.popup__button').disabled = !isValid; /* eslint-disable-line no-param-reassign */
+      form.querySelector('.popup__button').disabled = !isValid; /* eslint-disable-line no-param-reassign */ // на этапе с JS этот код будет переделан
     });
   });
-
-  found.style.display = '';
 });
