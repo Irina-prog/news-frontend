@@ -1,6 +1,21 @@
 import '../styles/index.css';
 import './hamburger';
 
+function showPopup(popup) {
+  const form = popup.querySelector('form');
+  if (form) {
+    form.reset();
+    form.querySelector('.popup__button').disabled = true;
+  }
+  popup.classList.add('popup_is-opened');
+}
+
+function hidePopup(popup) {
+  popup.classList.remove('popup_is-opened');
+}
+
+let authentificated = false;
+
 window.addEventListener('DOMContentLoaded', () => {
   const foundMoreResults = document.querySelector('.found__more-results');
   foundMoreResults.addEventListener('click', () => {
@@ -41,10 +56,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('card__bookmark')) {
-      e.target.classList.toggle('card__bookmark_marked');
+      if (authentificated) {
+        e.target.classList.toggle('card__bookmark_marked');
+      } else {
+        if (e.target.parentElement.querySelector('.card__tooltip')) {
+          return;
+        }
+        const tooltip = document.createElement('p');
+        tooltip.classList.add('card__tooltip');
+        tooltip.textContent = 'Войдите, чтобы сохранять статьи';
+        e.target.parentElement.appendChild(tooltip);
+        setTimeout(() => {
+          e.target.parentElement.removeChild(tooltip);
+        }, 5000);
+      }
     }
     if (e.target.classList.contains('popup__close')) {
-      e.target.closest('.popup').classList.remove('popup_is-opened');
+      hidePopup(e.target.closest('.popup'));
     }
   });
 
@@ -54,42 +82,56 @@ window.addEventListener('DOMContentLoaded', () => {
       userButton.classList.remove('header__menu-user_signedin');
       document.querySelector('.header__user-text').textContent = 'Авторизоваться';
       document.querySelectorAll('.header__menu li')[1].style.display = 'none';
+      authentificated = false;
     } else {
-      loginPopup.classList.add('popup_is-opened');
+      showPopup(loginPopup);
     }
   });
 
   registerPopup.querySelector('.popup__link').addEventListener('click', (e) => {
     e.preventDefault();
-    loginPopup.classList.add('popup_is-opened');
-    registerPopup.classList.remove('popup_is-opened');
+    showPopup(loginPopup);
+    hidePopup(registerPopup);
   });
 
   loginPopup.querySelector('.popup__link').addEventListener('click', (e) => {
     e.preventDefault();
-    loginPopup.classList.remove('popup_is-opened');
-    registerPopup.classList.add('popup_is-opened');
+    hidePopup(loginPopup);
+    showPopup(registerPopup);
   });
 
   registeredPopup.querySelector('.popup__link').addEventListener('click', (e) => {
     e.preventDefault();
-    loginPopup.classList.add('popup_is-opened');
-    registeredPopup.classList.remove('popup_is-opened');
+    showPopup(loginPopup);
+    hidePopup(registeredPopup);
   });
 
-  registerPopup.querySelector('form').addEventListener('submit', (e) => {
+  const registerForm = registerPopup.querySelector('form');
+  const loginForm = loginPopup.querySelector('form');
+
+  registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    registerPopup.classList.remove('popup_is-opened');
-    registeredPopup.classList.add('popup_is-opened');
+    hidePopup(registerPopup);
+    showPopup(registeredPopup);
   });
 
-  loginPopup.querySelector('form').addEventListener('submit', (e) => {
+  loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     loginPopup.classList.remove('popup_is-opened');
     userButton.classList.add('header__menu-user_signedin');
     document.querySelector('.header__user-text').textContent = 'Грета';
     document.querySelectorAll('.header__menu li')[1].style.display = '';
+    authentificated = true;
   });
 
   document.querySelectorAll('.header__menu li')[1].style.display = 'none';
+
+  [registerForm, loginForm].forEach((form) => {
+    form.addEventListener('change', () => {
+      const isValid = form.reportValidity();
+      form.querySelector('.popup__button').disabled = !isValid; /* eslint-disable-line no-param-reassign */
+    });
+  });
+
+  found.style.display = '';
 });

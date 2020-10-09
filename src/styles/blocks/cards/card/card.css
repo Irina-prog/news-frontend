@@ -1,5 +1,6 @@
 @import url(__header/card__header.css);
 @import url(__image/card__image.css);
+@import url(__tooltip/card__tooltip.css);
 @import url(__body/card__body.css);
 
 
