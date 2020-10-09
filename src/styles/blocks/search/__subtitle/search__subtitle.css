@@ -1,4 +1,9 @@
 .search__subtitle {
   margin: 32px 0 64px;
   color: #FFFFFF;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
 }
