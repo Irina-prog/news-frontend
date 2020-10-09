@@ -18,3 +18,15 @@
   background: #E6E8EB;
   color: #B6BCBF;
 }
+
+.popup__button:focus{
+  outline: 0;
+}
+
+.popup__button:active{
+  background-color: #2A65CC;
+}
+
+.popup__button:enabled:hover{
+  background-color: #347EFF;
+}
