@@ -11,6 +11,7 @@
   background: #2F71E5;
   color: #FFFFFF;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .popup__button:disabled {

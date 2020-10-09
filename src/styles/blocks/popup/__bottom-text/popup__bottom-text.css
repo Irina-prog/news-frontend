@@ -1,3 +1,5 @@
+@import url(./_success/popup__bottom-text_success.css);
+
 .popup__bottom-text {
   font-family: Inter;
   font-style: normal;
