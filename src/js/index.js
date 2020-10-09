@@ -71,6 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 5000);
       }
     }
+
     if (e.target.classList.contains('popup__close')) {
       hidePopup(e.target.closest('.popup'));
     }
