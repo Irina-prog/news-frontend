@@ -14,6 +14,8 @@ function hidePopup(popup) {
   popup.classList.remove('popup_is-opened');
 }
 
+let authentificated = false;
+
 window.addEventListener('DOMContentLoaded', () => {
   const foundMoreResults = document.querySelector('.found__more-results');
   foundMoreResults.addEventListener('click', () => {
@@ -54,7 +56,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('card__bookmark')) {
-      e.target.classList.toggle('card__bookmark_marked');
+      if (authentificated) {
+        e.target.classList.toggle('card__bookmark_marked');
+      } else {
+        if (e.target.parentElement.querySelector('.card__tooltip')) {
+          return;
+        }
+        const tooltip = document.createElement('p');
+        tooltip.classList.add('card__tooltip');
+        tooltip.textContent = 'Войдите, чтобы сохранять статьи';
+        e.target.parentElement.appendChild(tooltip);
+        setTimeout(() => {
+          e.target.parentElement.removeChild(tooltip);
+        }, 5000);
+      }
     }
     if (e.target.classList.contains('popup__close')) {
       hidePopup(e.target.closest('.popup'));
@@ -67,6 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
       userButton.classList.remove('header__menu-user_signedin');
       document.querySelector('.header__user-text').textContent = 'Авторизоваться';
       document.querySelectorAll('.header__menu li')[1].style.display = 'none';
+      authentificated = false;
     } else {
       showPopup(loginPopup);
     }
@@ -105,6 +121,7 @@ window.addEventListener('DOMContentLoaded', () => {
     userButton.classList.add('header__menu-user_signedin');
     document.querySelector('.header__user-text').textContent = 'Грета';
     document.querySelectorAll('.header__menu li')[1].style.display = '';
+    authentificated = true;
   });
 
   document.querySelectorAll('.header__menu li')[1].style.display = 'none';
@@ -115,4 +132,6 @@ window.addEventListener('DOMContentLoaded', () => {
       form.querySelector('.popup__button').disabled = !isValid; /* eslint-disable-line no-param-reassign */
     });
   });
+
+  found.style.display = '';
 });
