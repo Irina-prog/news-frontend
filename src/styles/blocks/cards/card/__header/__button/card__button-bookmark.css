@@ -1,0 +1,3 @@
+.card__button.card__button-bookmark::after {
+  content: url(../../../../../../images/bookmark.svg);
+}

@@ -1,4 +1,4 @@
-@import url(card-bookmark/card__bookmark.css);
+@import url(__button/card__button.css);
 .card__header {
   height: 272px;
   display: flex;

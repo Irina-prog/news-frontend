@@ -55,9 +55,10 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('card__bookmark')) {
+    if (e.target.classList.contains('card__button-bookmark')) {
       if (authentificated) {
-        e.target.classList.toggle('card__bookmark_marked');
+        e.target.classList.add('card__button-marked-bookmark');
+        e.target.classList.remove('card__button-bookmark');
       } else {
         if (e.target.parentElement.querySelector('.card__tooltip')) {
           return;
@@ -133,4 +134,6 @@ window.addEventListener('DOMContentLoaded', () => {
       form.querySelector('.popup__button').disabled = !isValid; /* eslint-disable-line no-param-reassign */ // на этапе с JS этот код будет переделан
     });
   });
+
+  found.style.display = '';
 });
