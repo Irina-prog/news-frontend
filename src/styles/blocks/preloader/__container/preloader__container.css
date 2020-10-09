@@ -1,5 +1,8 @@
 @import url(./__circle/preloader__circle.css);
 .preloader__container {
   position: relative;
-  height: 74px
+  /*padding-top: 117px;*/
+  margin: 0 auto;
+  height: 74px;
+  width: 74px;
 }
