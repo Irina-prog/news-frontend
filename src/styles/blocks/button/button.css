@@ -1,5 +1,8 @@
-.search__bar-button {
-  width: 168px;
+@import url(./button-form.css);
+@import url(./button-more.css);
+@import url(./button-search.css);
+
+.button {
   height: 64px;
   border-radius: 100px;
   background-color: #2F71E5;
@@ -11,14 +14,19 @@
   cursor: pointer;
 }
 
-.search__bar-button:hover{
+.button:hover{
   background-color: #347EFF;
 }
 
-.search__bar-button:active{
+.button:active{
   background-color: #2A65CC;
 }
 
-.search__bar-button:focus{
+.button:focus{
   outline: 0;
+}
+
+.button:disabled {
+  background: #E6E8EB;
+  color: #B6BCBF;
 }

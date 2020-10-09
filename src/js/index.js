@@ -5,7 +5,7 @@ function showPopup(popup) {
   const form = popup.querySelector('form');
   if (form) {
     form.reset();
-    form.querySelector('.popup__button').disabled = true;
+    form.querySelector('.button-form').disabled = true;
   }
   popup.classList.add('popup_is-opened');
 }
@@ -17,7 +17,7 @@ function hidePopup(popup) {
 let authentificated = false;
 
 window.addEventListener('DOMContentLoaded', () => {
-  const foundMoreResults = document.querySelector('.found__more-results');
+  const foundMoreResults = document.querySelector('.button-more');
   foundMoreResults.addEventListener('click', () => {
     const cards = document.querySelector('.cards');
     document.querySelectorAll('.cards .card').forEach((card) => {
@@ -131,9 +131,7 @@ window.addEventListener('DOMContentLoaded', () => {
   [registerForm, loginForm].forEach((form) => {
     form.addEventListener('input', () => {
       const isValid = form.reportValidity();
-      form.querySelector('.popup__button').disabled = !isValid; /* eslint-disable-line no-param-reassign */ // на этапе с JS этот код будет переделан
+      form.querySelector('.button-form').disabled = !isValid; /* eslint-disable-line no-param-reassign */ // на этапе с JS этот код будет переделан
     });
   });
-
-  found.style.display = '';
 });

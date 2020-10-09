@@ -1,6 +1,4 @@
 @import url(__title/found__title.css);
-@import url(__more-results/found__more-results.css);
-
 
 .found {
   display: grid;
