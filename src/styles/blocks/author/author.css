@@ -4,28 +4,26 @@
 .author {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   margin: 80px 0;
   padding: 0 104px;
 }
 
 
-@media screen and (min-width : 768px) and (max-width : 1440px) {
+@media screen and (min-width : 768px) and (max-width : 1139px) {
   .author {
-      padding: 0 calc(40px+(100vw-768px)*0.0952);
-  }
-}
-
-@media screen and (min-width : 319px) and (max-width : 767px) {
-  .author {
-      padding: 0 calc(16px+(100vw-320px)*0.0536);
-
-
+      padding: 0 40px;
   }
 }
 
 
+@media screen and (max-width : 767px) {
+  .author {
+      padding: 0 16px;
+      flex-direction: column;
+  }
 
-
-
+  .author picture {
+    align-self: center;
+  }
+}
 
