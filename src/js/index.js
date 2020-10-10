@@ -1,6 +1,8 @@
 import '../styles/index.css';
 import './hamburger';
 
+import showTooltip from './tooltip';
+
 function showPopup(popup) {
   const form = popup.querySelector('form');
   if (form) {
@@ -55,21 +57,12 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('card__button-bookmark')) {
+    if (e.target.classList.contains('card__button_bookmark')) {
       if (authentificated) {
-        e.target.classList.add('card__button-marked-bookmark');
-        e.target.classList.remove('card__button-bookmark');
+        e.target.classList.add('card__button_marked-bookmark');
+        e.target.classList.remove('card__button_bookmark');
       } else {
-        if (e.target.parentElement.querySelector('.card__tooltip')) {
-          return;
-        }
-        const tooltip = document.createElement('p');
-        tooltip.classList.add('card__tooltip');
-        tooltip.textContent = 'Войдите, чтобы сохранять статьи';
-        e.target.parentElement.appendChild(tooltip);
-        setTimeout(() => {
-          e.target.parentElement.removeChild(tooltip);
-        }, 3000);
+        showTooltip(e.target, 'Войдите, чтобы сохранять статьи', true);
       }
     }
 

@@ -1,10 +1,9 @@
 import '../styles/index.css';
 import './hamburger';
+import './tooltip';
 
-window.addEventListener('DOMContentLoaded', () => {
-  document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('card__button-trash')) {
-      e.target.closest('.card').remove();
-    }
-  });
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('card__button_trash')) {
+    e.target.closest('.card').remove();
+  }
 });
