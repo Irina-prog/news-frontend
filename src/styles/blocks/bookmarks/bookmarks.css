@@ -1,0 +1,6 @@
+.bookmarks {
+  display: grid;
+  justify-content: center;
+  background: #F5F6F7;;
+  padding: 62px 0;
+}

@@ -8,7 +8,7 @@
 @import url(header_visible-mobile-menu.css);
 
 .header {
-  padding-bottom: 80px;
+  /*padding-bottom: 80px;*/
 }
 
 @media screen and (max-width : 320px) {
