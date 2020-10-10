@@ -1,5 +1,6 @@
 @import url(./__links/footer__links.css);
 @import url(./footer__copyright.css);
+@import url(./__links/footer__links-text.css);
 
 .footer {
   display: flex;
@@ -9,8 +10,24 @@
   padding: 0 104px;
 }
 
-@media screen and (max-width : 767px) {
+@media screen and (min-width : 768px) and (max-width : 1440px) {
   .footer {
-      padding: 0 16px;
+      padding: 0 calc(40px+(100vw-768px)*0.0952);
+  }
+}
+
+@media screen and (min-width : 319px) and (max-width : 767px) {
+  .footer {
+      padding: 0 calc(16px+(100vw-320px)*0.0536);
+
+
+  }
+}
+
+@media screen and (min-width : 319px) and (max-width : 700px) {
+  .footer {
+
+      flex-direction: column-reverse;
+
   }
 }
