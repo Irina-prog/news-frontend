@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', () => {
         e.target.parentElement.appendChild(tooltip);
         setTimeout(() => {
           e.target.parentElement.removeChild(tooltip);
-        }, 5000);
+        }, 3000);
       }
     }
 

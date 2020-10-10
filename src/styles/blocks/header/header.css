@@ -1,15 +1,14 @@
+@import url(header_main.css);
+@import url(header_bookmarks.css);
 @import url(header__title.css);
 @import url(header__hamburger.css);
 @import url(header__signout-icon.css);
 @import url(__menu/header__menu.css);
 @import url(header__navigator.css);
-@import url(header__navigator_dark.css);
-@import url(header__navigator_visible-mobile-menu.css);
+@import url(header_visible-mobile-menu.css);
 
 .header {
-  background-image: url(../../../images/background.jpg);
-  background-size: cover;
-  padding: 0 104px 80px;
+  padding-bottom: 80px;
 }
 
 @media screen and (max-width : 320px) {

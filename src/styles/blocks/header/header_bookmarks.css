@@ -1,0 +1,16 @@
+.header.header_bookmarks.header_visible-mobile-menu .header__navigator, .header.header_bookmarks.header_visible-mobile-menu .header__menu {
+  background-color: #ffffff;
+}
+
+.header.header_bookmarks {
+  color: #1A1B22;
+  border-color: #1A1B22;
+}
+
+.header.header_bookmarks .header__menu-item a {
+  color: #1A1B22;
+}
+
+.header.header_bookmarks .header__hamburger, .header.header_bookmarks .header__signout-icon {
+  filter: invert(7%) sepia(3%) saturate(4444%) hue-rotate(195deg) brightness(89%) contrast(90%);
+}

@@ -3,9 +3,9 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  padding-top: 19px;
-  padding-bottom: 93px;
+  padding: 19px 104px 0 104px;
   position: relative;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.2);
 }
 
 @media screen and (max-width : 320px) {
