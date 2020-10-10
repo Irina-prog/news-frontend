@@ -7,7 +7,7 @@
   width: 608px;
   justify-content: space-between;
   border-radius: 100px;
-  background: #FFFFFF;;
+  background: #FFFFFF;
   align-items: center;
 }
 
@@ -22,5 +22,7 @@
   .search__bar {
     flex-direction: column;
     width: 100%;
+    border-radius: 0;
+    background: transparent;
   }
 }
