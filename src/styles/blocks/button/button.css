@@ -1,6 +1,6 @@
-@import url(./button-form.css);
-@import url(./button-more.css);
-@import url(./button-search.css);
+@import url(./button_form.css);
+@import url(./button_more.css);
+@import url(./button_search.css);
 
 .button {
   height: 64px;
