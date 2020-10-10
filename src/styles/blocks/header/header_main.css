@@ -1,19 +1,19 @@
 
-.header.header-main.header_visible-mobile-menu .header__navigator, .header.header-main.header_visible-mobile-menu .header__menu {
+.header.header_main.header_visible-mobile-menu .header__navigator, .header.header_main.header_visible-mobile-menu .header__menu {
   background-color: #1A1B22;
 }
 
-.header.header-main {
+.header.header_main {
   background-image: url(../../../images/background.jpg);
   background-size: cover;
   color: #FFFFFF;
   border-color: #FFFFFF;
 }
 
-.header.header-main .header__menu-item a {
+.header.header_main .header__menu-item a {
   color: #FFFFFF;
 }
 
-.header.header-main .header__hamburger, .header.header-main .header__signout-icon {
+.header.header_main .header__hamburger, .header.header_main .header__signout-icon {
   filter: invert(100%) sepia(7%) saturate(26%) hue-rotate(319deg) brightness(108%) contrast(108%);
 }
