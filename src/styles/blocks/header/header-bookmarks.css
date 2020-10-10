@@ -1,0 +1,12 @@
+.header.header-bookmarks {
+  color: #1A1B22;
+  border-color: #1A1B22;
+}
+
+.header.header-bookmarks .header__menu-item a {
+  color: #1A1B22;
+}
+
+.header.header-main .header__hamburger, .header.header-main .header__signout-icon {
+  filter: invert(7%) sepia(3%) saturate(4444%) hue-rotate(195deg) brightness(89%) contrast(90%);
+}
