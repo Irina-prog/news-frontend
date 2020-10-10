@@ -1,3 +1,9 @@
 .button.button-search {
   width: 168px;
 }
+
+@media screen and (max-width : 767px) {
+  .button.button-search {
+    width: 100%;
+  }
+}

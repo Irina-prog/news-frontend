@@ -16,3 +16,10 @@
 .header__menu-user .header__signout-icon {
   display: none;
 }
+
+@media screen and (min-width : 769px) and (max-width : 1140px) {
+  .header__menu-user {
+    padding: 8px 12px;
+    margin-top: -10px;
+  }
+}
