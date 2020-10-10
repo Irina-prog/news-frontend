@@ -1,0 +1,11 @@
+@import url(./__subtitle/summary__subtitle.css);
+@import url(./__title/summary__title.css);
+@import url(./__tags/summary__tags.css);
+
+.summary {
+  display: grid;
+  justify-content: center;
+  background: #F5F6F7;;
+  padding: 62px 0;
+}
+
