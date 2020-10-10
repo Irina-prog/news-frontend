@@ -12,3 +12,10 @@
   z-index: 5;
   align-self: end;
 }
+
+@media screen and (max-width : 1139px) {
+  .card__tag {
+    margin-top: 16px;
+    margin-left: 16px;
+  }
+}

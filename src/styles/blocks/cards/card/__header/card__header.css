@@ -8,3 +8,16 @@
   border-top-right-radius: inherit;
   position: relative;
 }
+
+@media screen and (min-width : 768px) and (max-width : 1139px) {
+  .card__header {
+    height: 150px;
+  }
+}
+
+
+@media screen and (max-width : 767px) {
+  .card__header {
+    height: 196px;
+  }
+}

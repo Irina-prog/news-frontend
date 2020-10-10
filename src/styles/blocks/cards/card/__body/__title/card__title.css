@@ -7,3 +7,18 @@
   margin-top: 12px;
   margin-bottom: 16px;
 }
+
+@media screen and (min-width : 768px) and (max-width : 1139px) {
+  .card__title {
+    font-size: 22px;
+    line-height: 24px;
+  }
+}
+
+
+@media screen and (max-width : 767px) {
+  .card__title {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}

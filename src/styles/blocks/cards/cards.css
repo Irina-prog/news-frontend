@@ -1,7 +1,6 @@
 @import url(card/card.css);
 .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 400px);
-  column-gap: 16px;
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
