@@ -127,4 +127,6 @@ window.addEventListener('DOMContentLoaded', () => {
       form.querySelector('.button_form').disabled = !isValid; /* eslint-disable-line no-param-reassign */ // на этапе с JS этот код будет переделан
     });
   });
+
+  found.style.display = '';
 });
