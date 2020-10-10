@@ -1,3 +1,8 @@
+
+.header.header-main.header_visible-mobile-menu .header__navigator, .header.header-main.header_visible-mobile-menu .header__menu {
+  background-color: #1A1B22;
+}
+
 .header.header-main {
   background-image: url(../../../images/background.jpg);
   background-size: cover;
