@@ -2,9 +2,28 @@
   font-family: Roboto Slab;
   font-style: normal;
   font-weight: normal;
-  font-size: 30px;
-  line-height: 34px;
+  font-size: 40px;
+  line-height: 46px;
   color: #1A1B22;
   margin: 16px 0;
-  width: 336px;
+  width: 530px;
+}
+
+
+@media screen and (min-width : 768px) and (max-width : 1139px) {
+  .summary__title {
+    font-size: clamp(30px, 3vw, 40px);
+    line-height: clamp(34px, 4vw, 46px);
+    width: clamp(336px, 40vw, 530px);
+  }
+}
+
+
+@media screen and (max-width : 767px) {
+  .summary__title {
+    width: 100%;
+    font-size: 30px;
+    line-height: 34px;
+    max-width: 336px;
+  }
 }
