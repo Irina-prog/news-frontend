@@ -6,7 +6,7 @@
   display: flex;
   justify-content:center;
   flex-direction: column;
-  width: 545px;
-  margin: 93px auto 0;
+  width: clamp(285px, 48vw, 545px);
+  margin: clamp(30px, 9vw, 93px) auto 0;
   padding-bottom: 80px;
 }

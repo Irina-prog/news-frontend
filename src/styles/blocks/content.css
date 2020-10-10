@@ -33,8 +33,14 @@ h3 {
   font-style: normal;
 }
 
+@media screen and (min-width : 768px) and (max-width : 1139px) {
+  .content {
+    font-size: 16px;
+  }
+}
 
-@media screen and (max-width : 320px) {
+
+@media screen  and (max-width : 767px) {
   .content {
     margin: 0;
   }

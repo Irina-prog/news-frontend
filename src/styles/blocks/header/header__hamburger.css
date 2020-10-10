@@ -5,7 +5,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width : 320px) {
+@media screen and (max-width : 767px) {
   .header__hamburger {
       display: block;
       width: 24px;

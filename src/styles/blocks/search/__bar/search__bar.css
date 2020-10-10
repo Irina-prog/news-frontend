@@ -10,3 +10,17 @@
   background: #FFFFFF;;
   align-items: center;
 }
+
+@media screen and (min-width : 768px) and (max-width : 1139px) {
+  .search__bar {
+    width: clamp(448px, 59vw, 608px);
+  }
+}
+
+
+@media screen and (max-width : 767px) {
+  .search__bar {
+    flex-direction: column;
+    width: 100%;
+  }
+}

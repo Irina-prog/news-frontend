@@ -1,6 +1,6 @@
 @import url(./card__button_bookmark.css);
-@import url(./card__button-marked-bookmark.css);
-@import url(./card__button-trash.css);
+@import url(./card__button_marked-bookmark.css);
+@import url(./card__button_trash.css);
 
 .card__button {
   width: 40px;
@@ -14,6 +14,7 @@
   border: none;
   padding: 0;
   background-color: #ffffff;
+  position: relative;
 }
 
 .card__button::after {
@@ -31,4 +32,3 @@
 .card__button:focus{
   outline: 0;
 }
-
