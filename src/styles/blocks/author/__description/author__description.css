@@ -5,4 +5,17 @@
 .author__description {
   display: flex;
   flex-direction: column;
+  width: 600px;
 }
+/*
+@media screen and (min-width : 768px) and (max-width: 900px) {
+  .author__description {
+    width: 424px;
+  }
+}
+
+@media screen and (min-width : 320px) and (max-width: 767px) {
+  .author__description {
+    width: 87vw;
+  }
+}*/
