@@ -7,6 +7,6 @@ document.addEventListener('click', (e) => {
     e.target.closest('.card').remove();
   }
   if (e.target.closest('.header__menu-user')) {
-    window.location.href = '/';
+    window.location.href = './index.html';
   }
 });
