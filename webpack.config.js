@@ -5,8 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash'); // добавили плагин
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const isDev = process.env.NODE_ENV === 'development';
-
 module.exports = {
   entry: { main: './src/js/index.js', bookmarks: './src/js/bookmarks.js' },
   output: {
@@ -29,7 +27,6 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
           {
             loader: 'css-loader',
             options: {
