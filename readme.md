@@ -7,7 +7,7 @@
 
 
 
-[Github Pages](https://irina-prog.github.io/news-frontend/)
+[Github Pages](https://irina-prog.github.io/news-frontend/index.html)
 
 
 Используемые техноологии: webpack, JS-модули, npm.
@@ -25,7 +25,7 @@
 
 ### Для проверяющего
 
-Сайт опубликован на [Github pages](https://irina-prog.github.io/news-frontend/)
+Сайт опубликован на [Github pages](https://irina-prog.github.io/news-frontend/index.html)
 
 Для того, чтобы увидеть "Ничего не найдено", нажмите кнопку "Искать" без какого-либо текста. Поиск статей будет "успешным" для любой введёной строки.
 
