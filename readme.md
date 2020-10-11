@@ -2,7 +2,6 @@
 
 Содержит frontend сервиса для поиска и сохранения новостей.
 
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Irina-prog/news-frontend)
 ![GitHub open issues](https://img.shields.io/github/issues-raw/Irina-prog/news-frontend)
 ![GitHub stars](https://img.shields.io/github/stars/Irina-prog/news-frontend?style=social)
 
