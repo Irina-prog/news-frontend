@@ -1,7 +1,7 @@
 .header__hamburger{
   display: none;
   content: ' ';
-  background-image: url(../../../images/hamburger.svg);
+  background-image: url(../../../../../images/hamburger.svg);
   cursor: pointer;
 }
 

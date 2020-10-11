@@ -1,3 +1,7 @@
+@import url(./__title/header__title.css);
+@import url(./__hamburger/header__hamburger.css);
+@import url(./__menu/header__menu.css);
+
 .header__navigator {
   display: flex;
   flex-direction: row;

@@ -1,4 +1,4 @@
-.search__title {
+.header__search-title {
   font-family: Roboto Slab;
   font-style: normal;
   font-weight: normal;
@@ -9,14 +9,14 @@
 }
 
 @media screen and (max-width : 1139px) {
-  .search__title {
+  .header__search-title {
     font-size: clamp(36px, 6vw, 60px);
     line-height: clamp(40px, 6vw, 64px);
   }
 }
 
 @media screen and (max-width : 767px) {
-  .search__title {
+  .header__search-title {
     font-size: clamp(36px, 5vw, 36px);
     line-height: clamp(40px, 6vw, 40px);
   }

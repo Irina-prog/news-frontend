@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
   notFound.style.display = 'none';
   found.style.display = 'none';
 
-  document.querySelector('.search__bar').addEventListener('submit', (e) => {
+  document.querySelector('.header__bar').addEventListener('submit', (e) => {
     const searchText = e.target.elements[0].value.trim();
     notFound.style.display = 'none';
     found.style.display = 'none';

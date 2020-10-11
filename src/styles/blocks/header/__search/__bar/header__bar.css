@@ -1,7 +1,7 @@
-@import url(__bar-input/search__bar-input.css);
+@import url(__bar-input/header__bar-input.css);
 
 
-.search__bar {
+.header__bar {
   display: flex;
   flex-direction: row;
   width: 608px;
@@ -12,14 +12,14 @@
 }
 
 @media screen and (min-width : 768px) and (max-width : 1139px) {
-  .search__bar {
+  .header__bar {
     width: clamp(448px, 59vw, 608px);
   }
 }
 
 
 @media screen and (max-width : 767px) {
-  .search__bar {
+  .header__bar {
     flex-direction: column;
     width: 100%;
     border-radius: 0;

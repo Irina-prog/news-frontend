@@ -1,8 +1,8 @@
-@import url(__title/search__title.css);
-@import url(__subtitle/search__subtitle.css);
-@import url(__bar/search__bar.css);
+@import url(__title/header__search-title.css);
+@import url(__subtitle/header__search-subtitle.css);
+@import url(__bar/header__bar.css);
 
-.search {
+.header__search {
   display: flex;
   justify-content:center;
   flex-direction: column;

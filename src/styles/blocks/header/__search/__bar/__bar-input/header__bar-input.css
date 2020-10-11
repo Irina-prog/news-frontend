@@ -1,4 +1,4 @@
-.search__bar-input {
+.header__bar-input {
   margin-left: 24px;
   border: none;
   flex-grow: 1;
@@ -7,16 +7,16 @@
   color: #1A1B22;
 }
 
-.search__bar-input:focus{
+.header__bar-input:focus{
   outline: 0;
 }
 
-.search__bar-input::placeholder{
+.header__bar-input::placeholder{
   color: #B6BCBF;
 }
 
 @media screen and (max-width : 767px) {
-  .search__bar-input {
+  .header__bar-input {
     background: #FFFFFF;
     border-radius: 100px;
     height: 100px;
