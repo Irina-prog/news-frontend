@@ -2,6 +2,7 @@
 @import url(./header__menu-user.css);
 @import url(./header__menu-user_signedin.css);
 @import url(./header__menu_active.css);
+@import url(./header__signout-icon.css);
 
 .header__menu {
   list-style-type: none;

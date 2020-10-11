@@ -4,10 +4,6 @@
 @import url(header_visible-mobile-menu.css);
 @import url(./__search/header__search.css);
 
-.header {
-  /*padding-bottom: 80px;*/
-}
-
 @media screen and (max-width : 767px) {
   .header {
       align-items: center;

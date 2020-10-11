@@ -4,7 +4,7 @@ export default function showTooltip(button, text, force) {
   const existingTooltip = button.querySelector('.card__tooltip');
   if (force) {
     if (existingTooltip) {
-      button.removeChild(existingTooltip);
+      existingTooltip.remove();
     }
   } else if (existingTooltip) {
     return;
@@ -14,7 +14,7 @@ export default function showTooltip(button, text, force) {
   tooltip.textContent = text;
   button.appendChild(tooltip);
   setTimeout(() => {
-    button.removeChild(tooltip);
+    tooltip.remove();
   }, 3000);
 }
 
