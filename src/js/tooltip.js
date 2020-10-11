@@ -29,6 +29,9 @@ document.addEventListener('mouseover', (e) => {
       if (e.target.classList.contains('card__button_bookmark')) {
         tooltipText = 'Добавить в сохранённые';
       }
+      if (e.target.classList.contains('card__button_marked-bookmark')) {
+        tooltipText = 'Добавлено в сохранённые';
+      }
       showTooltip(e.target, tooltipText);
     }, 500);
   }

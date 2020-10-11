@@ -4,12 +4,3 @@
   margin: 0 0 18px;
   flex-grow: 1;
 }
-
-@media screen and (min-width : 768px) and (max-width : 1139px) {
-  .card__text {
-    /* Показываем только первые 4 строки новости в планшетном режиме */
-    --max-lines: 4;
-    max-height: calc(22px * var(--max-lines));
-    overflow: hidden;
-  }
-}
