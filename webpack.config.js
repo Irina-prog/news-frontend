@@ -9,7 +9,7 @@ module.exports = {
   entry: { main: './src/js/index.js', bookmarks: './src/js/bookmarks.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
+    filename: 'js/[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -28,6 +28,12 @@ module.exports = {
         test: /\.css$/i,
         use: [
           {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            },
+          },
+          {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
@@ -39,7 +45,7 @@ module.exports = {
       {
         test: /\.(png|jpg|gif|ico|svg)$/,
         use: [
-          'file-loader?name=./src/images/[name].[ext]&esModule=false', // указали папку, куда складывать изображения
+          'file-loader?name=./images/[name].[ext]&esModule=false', // указали папку, куда складывать изображения
           {
             loader: 'image-webpack-loader',
             options: { },
@@ -50,7 +56,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style.[contenthash].css',
+      filename: 'styles/[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
