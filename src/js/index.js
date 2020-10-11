@@ -10,10 +10,12 @@ function showPopup(popup) {
     form.querySelector('.button_form').disabled = true;
   }
   popup.classList.add('popup_is-opened');
+  document.querySelector('.header__hamburger').style.visibility = 'hidden';
 }
 
 function hidePopup(popup) {
   popup.classList.remove('popup_is-opened');
+  document.querySelector('.header__hamburger').style.visibility = 'visible';
 }
 
 let authentificated = false;
