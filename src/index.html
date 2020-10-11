@@ -41,7 +41,7 @@
 
         <div class="card">
           <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card.jpg')%>" alt="card2">
+            <img class="card__image" src="<%=require('./images/card.jpg')%>" alt="Национальные парки">
             <button class="card__button card__button_bookmark"></button>
           </div>
           <div class="card__body">
@@ -56,7 +56,7 @@
 
         <div class="card">
           <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card-2.jpg')%>" alt="card1">
+            <img class="card__image" src="<%=require('./images/card-2.jpg')%>" alt="Лесные огоньки">
             <button class="card__button card__button_bookmark"></button>
           </div>
           <div class="card__body">
@@ -70,7 +70,7 @@
 
         <div class="card">
           <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card-3.jpg')%>" alt="card2">
+            <img class="card__image" src="<%=require('./images/card-3.jpg')%>" alt="Первозданная тайга">
             <button class="card__button card__button_bookmark"></button>
           </div>
           <div class="card__body">
@@ -84,13 +84,13 @@
       </div>
       <button class="button button_more">Показать еще</button>
     </section>
-    <section class="preloader">
+    <div class="preloader">
       <div class="preloader__container">
         <i class="preloader__circle"></i>
       </div>
 
       <p class="preloader__comments">Идет поиск новостей</p>
-    </section>
+    </div>
 
     <section class="notfound">
       <div class="notfound__picture"></div>
@@ -100,7 +100,7 @@
 
     <section class="author">
       <picture>
-        <source srcset="<%=require('./images/avatar-hdpi.png')%>" media="(min-device-pixel-ratio: 1.5">
+        <source srcset="<%=require('./images/avatar-hdpi.png')%>" media="(min-device-pixel-ratio: 1.5)">
         <img  class="author__photo" src="<%=require('./images/avatar.png')%>" alt="фото автора сайта">
        </picture>
 
@@ -118,7 +118,7 @@
   </main>
   <div class="popup" id="register">
     <div class="popup__content">
-      <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
+      <img src="<%=require('./images/close.svg')%>" alt="X" class="popup__close">
       <h3 class="popup__title">Регистрация</h3>
       <form class="popup__form" name="email">
         <div class="popup__input-group">
@@ -139,12 +139,12 @@
         <p class="popup__error">Такой пользователь уже есть</p>
         <button type="submit" class="button button_form">Зарегистрироваться</button>
       </form>
-      <p class="popup__bottom-text">или <a href="#" class="popup__link">Войти</a></p>
+      <p class="popup__bottom-text">или <a href="#" class="popup__link">Войти</a></p> <!-- Обработка нажатия ссылок сделана в JS -->
     </div>
   </div>
   <div class="popup" id="login">
     <div class="popup__content">
-      <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
+      <img src="<%=require('./images/close.svg')%>" alt="X" class="popup__close">
       <h3 class="popup__title">Вход</h3>
       <form class="popup__form" name="email">
         <div class="popup__input-group">
@@ -160,14 +160,14 @@
         <p class="popup__error"></p>
         <button type="submit" class="button button_form">Войти</button>
       </form>
-      <p class="popup__bottom-text">или <a href="#" class="popup__link">Зарегистрироваться</a></p>
+      <p class="popup__bottom-text">или <a href="#" class="popup__link">Зарегистрироваться</a></p> <!-- Обработка нажатия ссылок сделана в JS -->
     </div>
   </div>
   <div class="popup" id="registered">
     <div class="popup__content">
-      <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
+      <img src="<%=require('./images/close.svg')%>" alt="X" class="popup__close">
       <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-      <p class="popup__bottom-text popup__bottom-text_success"><a href="#" class="popup__link">Войти</a></p>
+      <p class="popup__bottom-text popup__bottom-text_success"><a href="#" class="popup__link">Войти</a></p> <!-- Обработка нажатия ссылок сделана в JS -->
     </div>
   </div>
 
@@ -175,10 +175,10 @@
     <p class="footer__copyright">© 2020 Irina Belchikova, Powered by News API</p>
     <ul class="footer__links">
       <li class="footer__link "><a href="/">Главная</a></li>
-      <li class="footer__link "><a href="https://praktikum.yandex.ru/">Яндекс.Практикум</a></li>
-      <li class="footer__link footer__link_icon"><a href="https://www.github.com/"><img
+      <li class="footer__link "><a href="https://praktikum.yandex.ru/" target="_blank" rel="noopener">Яндекс.Практикум</a></li>
+      <li class="footer__link footer__link_icon"><a href="https://www.github.com/" target="_blank" rel="noopener"><img
         src="<%=require('./images/github.svg')%>" alt="github"></a></li>
-      <li class="footer__link footer__link_icon"><a href="https://www.facebook.com/"><img
+      <li class="footer__link footer__link_icon"><a href="https://www.facebook.com/" target="_blank" rel="noopener"><img
         src="<%=require('./images/facebook.svg')%>" alt="facebook"></a></li>
     </ul>
   </footer>
