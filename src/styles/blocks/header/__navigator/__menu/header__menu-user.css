@@ -1,0 +1,25 @@
+.header__menu-user {
+  border-radius: 100px;
+  border: 1px solid;
+  padding: 12px 19px;
+  margin-top: -14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+}
+
+.header__menu-user p {
+  margin: 0;
+}
+
+.header__menu-user .header__signout-icon {
+  display: none;
+}
+
+@media screen and (min-width : 769px) and (max-width : 1140px) {
+  .header__menu-user {
+    padding: 8px 12px;
+    margin-top: -10px;
+  }
+}

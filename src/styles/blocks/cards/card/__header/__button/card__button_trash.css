@@ -1,0 +1,3 @@
+.card__button.card__button_trash::after {
+  content: url(../../../../../../images/trash.svg);
+}

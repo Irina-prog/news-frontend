@@ -1,0 +1,20 @@
+@import url(./__subtitle/summary__subtitle.css);
+@import url(./__title/summary__title.css);
+@import url(./__tags/summary__tags.css);
+
+.summary {
+  margin: 0 104px 32px;
+}
+
+@media screen and (min-width : 768px) and (max-width : 1139px) {
+  .summary {
+    margin: 0 40px 32px;
+  }
+}
+
+
+@media screen and (max-width : 767px) {
+  .summary {
+    margin: 0 16px 32px;
+  }
+}

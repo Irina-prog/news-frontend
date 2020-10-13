@@ -1,0 +1,12 @@
+.header__title {
+  font-family: "Roboto Slab", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+@media screen and (max-width : 767px) {
+  .header__title {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,18 @@
+.summary__subtitle {
+  font-size: 18px;
+  color: rgba(26, 27, 34, 0.5);
+  margin-bottom: 0;
+}
+
+@media screen and (min-width : 768px) and (max-width : 1139px) {
+  .summary__subtitle {
+    font-size: clamp(14px, 2vw, 18px);
+  }
+}
+
+
+@media screen and (max-width : 767px) {
+  .summary__subtitle {
+    font-size: clamp(12px, 3vw, 14px);
+  }
+}

@@ -1,0 +1,19 @@
+.bookmarks {
+  display: grid;
+  justify-content: center;
+  background: #F5F6F7;;
+  padding: 62px 104px;
+}
+
+@media screen and (min-width : 768px) and (max-width : 1139px) {
+  .bookmarks {
+      padding: 32px 14px 32px 40px;
+  }
+}
+
+
+@media screen and (max-width : 767px) {
+  .bookmarks {
+      padding: 24px 16px;
+  }
+}

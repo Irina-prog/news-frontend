@@ -1,0 +1,12 @@
+.button.button_more {
+  width: 288px;
+  background: #fff;
+  color: #000000;
+  margin: 64px auto 0;
+  border: none;
+}
+
+.button.button_more:hover, .button.button_more:active {
+  background: #fff;
+  opacity: 0.8;
+}

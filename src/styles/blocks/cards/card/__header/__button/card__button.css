@@ -1,0 +1,42 @@
+@import url(./card__button_bookmark.css);
+@import url(./card__button_marked-bookmark.css);
+@import url(./card__button_trash.css);
+
+.card__button {
+  width: 40px;
+  height: 40px;
+  margin-top: 24px;
+  margin-right: 24px;
+  border-radius: 8px;
+  background-position: center;
+  cursor: pointer;
+  z-index: 5;
+  border: none;
+  padding: 0;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.card__button::after {
+  filter: invert(71%) sepia(8%) saturate(160%) hue-rotate(155deg) brightness(106%) contrast(88%);
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  display: block;
+}
+
+.card__button:hover::after, .card__button:active::after {
+  filter: none;
+}
+
+.card__button:focus{
+  outline: 0;
+}
+
+
+@media screen and (max-width : 1139px) {
+  .card__button {
+    margin-top: 16px;
+    margin-right: 16px;
+  }
+}

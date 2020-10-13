@@ -1,0 +1,8 @@
+@import url(./__picture/notfound__picture.css);
+@import url(./__title/notfound__title.css);
+@import url(./__comments/notfound__comments.css);
+
+.notfound {
+  height: 374px;
+  padding-top: 86px;
+}

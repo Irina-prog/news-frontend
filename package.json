@@ -1,0 +1,53 @@
+{
+  "name": "news-frontend",
+  "version": "1.0.0",
+  "description": "Дипломная работа: news-frontend",
+  "main": "index.js",
+  "homepage": "https://Irina-prog.github.io/news-frontend/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && cross-env webpack --mode production",
+    "dev": "cross-env webpack-dev-server --mode development --open --watch",
+    "deploy": "cross-env gh-pages -d dist",
+    "lint": "eslint . --ignore-pattern public",
+    "lint:fix": "eslint . --ignore-pattern public --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "7.10.4",
+    "@babel/core": "7.10.4",
+    "@babel/preset-env": "7.10.4",
+    "autoprefixer": "9.8.4",
+    "babel-loader": "8.1.0",
+    "cross-env": "7.0.2",
+    "css-loader": "3.6.0",
+    "cssnano": "4.1.10",
+    "eslint": "7.5.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "file-loader": "6.0.0",
+    "gh-pages": "2.0.1",
+    "html-webpack-plugin": "4.3.0",
+    "husky": "4.2.5",
+    "image-webpack-loader": "6.0.0",
+    "mini-css-extract-plugin": "0.9.0",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "postcss-loader": "3.0.0",
+    "style-loader": "1.2.1",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0",
+    "webpack-md5-hash": "0.0.6"
+  },
+  "dependencies": {
+    "babel-polyfill": "6.26.0",
+    "core-js": "3.4.1",
+    "normalize.css": "8.0.1"
+  }
+}

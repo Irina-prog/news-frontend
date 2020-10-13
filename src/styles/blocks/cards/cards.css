@@ -1,0 +1,6 @@
+@import url(card/card.css);
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,12 @@
+@import url(header_main.css);
+@import url(header_bookmarks.css);
+@import url(./__navigator/header__navigator.css);
+@import url(header_visible-mobile-menu.css);
+@import url(./__search/header__search.css);
+
+@media screen and (max-width : 767px) {
+  .header {
+      align-items: center;
+      padding: 0;
+  }
+}

@@ -1,0 +1,15 @@
+@import url(../../node_modules/normalize.css/normalize.css);
+@import url(../vendor/fonts.css);
+@import url(./blocks/content.css);
+@import url(./blocks/button/button.css);
+@import url(./blocks/header/header.css);
+@import url(./blocks/footer/footer.css);
+
+@import url(./blocks/author/author.css);
+@import url(./blocks/found/found.css);
+@import url(./blocks/cards/cards.css);
+@import url(./blocks/preloader/preloader.css);
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/notfound/notfound.css);
+@import url(./blocks/summary/summary.css);
+@import url(./blocks/bookmarks/bookmarks.css);

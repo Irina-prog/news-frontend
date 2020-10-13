@@ -1,0 +1,29 @@
+.header__bar-input {
+  margin-left: 24px;
+  border: none;
+  flex-grow: 1;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A1B22;
+}
+
+.header__bar-input:focus{
+  outline: 0;
+}
+
+.header__bar-input::placeholder{
+  color: #B6BCBF;
+}
+
+@media screen and (max-width : 767px) {
+  .header__bar-input {
+    background: #FFFFFF;
+    border-radius: 100px;
+    height: 100px;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 16px;
+    height: 62px;
+    padding: 0 16px;
+  }
+}

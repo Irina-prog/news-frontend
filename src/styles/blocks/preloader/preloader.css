@@ -1,0 +1,10 @@
+
+@import url(./__container/preloader__container.css);
+@import url(./__comments/preloader__comments.css);
+.preloader {
+  padding-top: 80px;
+  height: 282px;
+  background-color: #F5F6F7;
+
+
+}

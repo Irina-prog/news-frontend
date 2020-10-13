@@ -1,0 +1,32 @@
+@import url(./header__menu-item.css);
+@import url(./header__menu-user.css);
+@import url(./header__menu-user_signedin.css);
+@import url(./header__menu_active.css);
+@import url(./header__signout-icon.css);
+
+.header__menu {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 0;
+
+}
+
+@media screen and (max-width : 767px) {
+  .header__menu {
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      right: 0;
+      top: 55px;
+      /*background-color: #949090;*/
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      margin: 1px 0 0 0;
+  }
+}

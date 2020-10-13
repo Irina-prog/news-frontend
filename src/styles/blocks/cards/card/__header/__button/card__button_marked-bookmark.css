@@ -1,0 +1,4 @@
+.card__button.card__button_marked-bookmark::after {
+  content: url(../../../../../../images/bookmark-marked.svg);
+  filter: none;
+}

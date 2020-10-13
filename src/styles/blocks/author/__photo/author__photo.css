@@ -1,0 +1,19 @@
+.author__photo {
+  width: clamp(232px, 24vw, 464px);
+  height: auto;
+  margin-right: 56px;
+}
+
+@media screen and (min-width : 768px) and (max-width : 1139px) {
+  .author__photo {
+      width: 232px;
+  }
+}
+
+
+@media screen and (max-width : 767px) {
+  .author__photo {
+    width: 272px;
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,22 @@
+.header__menu-item {
+  margin-right: 32px;
+  padding-bottom: 23px;
+}
+
+.header__menu-item a {
+  text-decoration: none;
+}
+
+@media screen and (min-width : 768px) and (max-width : 1139px) {
+  .header__menu-item {
+    margin-right: 16px;
+    padding-bottom: 18px;
+  }
+}
+
+@media screen and (max-width : 767px) {
+  .header__menu-item {
+    margin-right: 0;
+    padding-bottom: 16px;
+  }
+}

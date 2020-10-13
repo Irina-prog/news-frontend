@@ -1,0 +1,8 @@
+.footer__link {
+  margin-right: 40px;
+}
+
+.footer__link a {
+  text-decoration: none;
+  color: #1A1B22;
+}
