@@ -1,5 +1,4 @@
 import '../styles/index.css';
-import './hamburger';
 
 import showTooltip from './tooltip';
 

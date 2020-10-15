@@ -1,5 +1,4 @@
 import '../styles/index.css';
-import './hamburger';
 import './tooltip';
 
 document.addEventListener('click', (e) => {
