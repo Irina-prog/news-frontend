@@ -35,69 +35,6 @@
     </section>
   </header>
   <main class="main">
-    <section class="found">
-      <h2 class="found__title">Результаты поиска</h2>
-      <div class="cards">
-
-        <div class="card">
-          <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card.jpg')%>" alt="Национальные парки">
-            <button class="card__button card__button_bookmark"></button>
-          </div>
-          <div class="card__body">
-            <h4 class="card__date">2 августа, 2019</h4>
-            <h3 class="card__title">Национальные парки</h3>
-            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-              складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к
-              природе.</p>
-            <p class="card__source">Лента</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card-2.jpg')%>" alt="Лесные огоньки">
-            <button class="card__button card__button_bookmark"></button>
-          </div>
-          <div class="card__body">
-            <h4 class="card__date">2 августа, 2019</h4>
-            <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-              из местных чудес природы.</p>
-            <p class="card__source">Медуза</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card-3.jpg')%>" alt="Первозданная тайга">
-            <button class="card__button card__button_bookmark"></button>
-          </div>
-          <div class="card__body">
-            <h4 class="card__date">2 августа, 2019</h4>
-            <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-            <p class="card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-            <p class="card__source">РИА</p>
-          </div>
-        </div>
-
-      </div>
-      <button class="button button_more">Показать еще</button>
-    </section>
-    <div class="preloader">
-      <div class="preloader__container">
-        <i class="preloader__circle"></i>
-      </div>
-
-      <p class="preloader__comments">Идет поиск новостей</p>
-    </div>
-
-    <section class="notfound">
-      <div class="notfound__picture"></div>
-      <h3 class="notfound__title">Ничего не найдено</h3>
-      <p class="notfound__comments">К сожалению по вашему запросу ничего не найдено.</p>
-    </section>
-
     <section class="author">
       <picture>
         <source srcset="<%=require('./images/avatar-hdpi.png')%>" media="(min-device-pixel-ratio: 1.5)">
@@ -182,7 +119,45 @@
         src="<%=require('./images/facebook.svg')%>" alt="facebook"></a></li>
     </ul>
   </footer>
-  <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
+
+<template id="found" type="text/html">
+  <section class="found">
+    <h2 class="found__title">Результаты поиска</h2>
+    <div class="cards"></div>
+    <button class="button button_more">Показать еще</button>
+  </section>
+</template>
+<template id="card" type="text/html">
+  <div class="card">
+    <div class="card__header">
+      <img class="card__image" src="" alt="">
+      <button class="card__button"></button>
+    </div>
+    <div class="card__body">
+      <h4 class="card__date"></h4>
+      <h3 class="card__title"></h3>
+      <p class="card__text"></p>
+      <p class="card__source"></p>
+    </div>
+  </div>
+</template>
+<template id="preloader" type="text/html">
+  <div class="preloader">
+    <div class="preloader__container">
+      <i class="preloader__circle"></i>
+    </div>
+
+    <p class="preloader__comments" type="text/html">Идет поиск новостей</p>
+  </div>
+</template>
+<template id="notfound" type="text/html">
+  <section class="notfound">
+    <div class="notfound__picture"></div>
+    <h3 class="notfound__title">Ничего не найдено</h3>
+    <p class="notfound__comments">К сожалению по вашему запросу ничего не найдено.</p>
+  </section>
+</template>
+<script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
 
 </html>

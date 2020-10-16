@@ -35,21 +35,7 @@
     <section class="bookmarks">
       <div class="cards">
 
-        <div class="card">
-          <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card4.jpg')%>" alt="Природа">
-            <button class="card__button card__button_trash"></button>
-            <p class="card__tag">Природа</p>
-          </div>
-          <div class="card__body">
-            <h4 class="card__date">2 августа, 2019</h4>
-            <h3 class="card__title">Национальное достояние – парки</h3>
-            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-              складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к
-              природе.</p>
-            <p class="card__source">Лента.ру</p>
-          </div>
-        </div>
+
 
         <div class="card">
           <div class="card__header">
@@ -126,6 +112,21 @@
         src="<%=require('./images/facebook.svg')%>" alt="facebook"></a></li>
     </ul>
   </footer>
+  <template id="card">
+    <div class="card">
+      <div class="card__header">
+        <img class="card__image" src="" alt="">
+        <button class="card__button"></button>
+        <p class="card__tag"></p>
+      </div>
+      <div class="card__body">
+        <h4 class="card__date"></h4>
+        <h3 class="card__title"></h3>
+        <p class="card__text"></p>
+        <p class="card__source">Лента.ру</p>
+      </div>
+    </div>
+  </template>
   <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
 
