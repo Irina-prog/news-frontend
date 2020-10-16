@@ -11,4 +11,9 @@ export default class Component {
       this._initialize();
     }
   }
+
+  destroy() {
+    this._element?.remove();
+    this._element = null;
+  }
 }
