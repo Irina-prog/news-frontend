@@ -24,16 +24,38 @@ export default class CardsList extends Component {
     }
   }
 
+  set allowCardActions(value) {
+    this._allowCardActions = value;
+    this._cards?.forEach((card) => {
+      card.allowActions(value);
+    });
+  }
+
+  get allowCardActions() {
+    return this._allowCardActions;
+  }
+
   _renderCards(list) {
-    this._element.textContent = '';
-    list.forEach((item) => {
+    this._cards?.forEach((card) => card.destroy());
+    this._cards = list.map((item) => {
       const card = new this._options.Card(this._element, {
         data: item,
         template: this._options.cardTemplate,
-        onButtonClick: this._mode === 'search' ? () => this.onAddCardToBookmarks(item, card) : () => {
-          this.onRemoveCardFromBookmarks(item, card).then(() => card.destroy());
-        },
+        allowCardActions: this._allowCardActions,
+        mode: this._mode,
+        onButtonClick: this._mode === 'search'
+          ? () => {
+            if (this._allowCardActions) {
+              this.onAddCardToBookmarks(item, card);
+            }
+          }
+          : () => {
+            if (this._allowCardActions) {
+              this.onRemoveCardFromBookmarks(item, card).then(() => card.destroy());
+            }
+          },
       });
+      return card;
     });
   }
 }
