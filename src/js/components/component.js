@@ -2,7 +2,7 @@ export default class Component {
   constructor(element, options = {}) {
     this._options = options;
     if (options.template?.content) {
-      this._element = options.template.content.cloneNode(true);
+      this._element = options.template.content.firstElementChild.cloneNode(true);
       element.appendChild(this._element);
     } else {
       this._element = element;

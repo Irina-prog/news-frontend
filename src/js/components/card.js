@@ -1,5 +1,5 @@
 import Component from './component';
-import formatDate from '../utils/date';
+import { formatDate } from '../utils/date';
 
 export default class Card extends Component {
   _initialize() {

@@ -3,7 +3,7 @@ import Component from './component';
 export default class Form extends Component {
   _checkInputValidity(input) {
     const errorView = this._options.getErrorViewForInput(input);
-    Form._isValid(input);
+    this._isValid(input);
     errorView.textContent = input.validationMessage;
   }
 
@@ -15,11 +15,11 @@ export default class Form extends Component {
     }
   }
 
-  static _isValid(input) {
+  _isValid(input) {
     input.setCustomValidity('');
 
     if (input.validity.valueMissing) {
-      input.setCustomValidity('Это обязательное поле');
+      input.setCustomValidity(this._options.requiredFiledText || 'Это обязательное поле');
       return false;
     }
 
@@ -42,7 +42,7 @@ export default class Form extends Component {
   }
 
   _updateSubmitButtonState() {
-    this._setSubmitButtonState(this._getInputs().every(Form._isValid));
+    this._setSubmitButtonState(this._getInputs().every(this._isValid.bind(this)));
   }
 
   _submit(event) {

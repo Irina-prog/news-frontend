@@ -25,8 +25,9 @@ class Application {
     });
     this._header.setTheme('main');
     this._searchForm = new Form(document.querySelector('.header__bar'), {
-      getErrorViewForInput: () => null, // TODO return error element for search form
+      getErrorViewForInput: () => document.querySelector('.header__search-error'),
       onSubmit: this._searchArticles.bind(this),
+      requiredFiledText: 'Нужно ввести ключевое слово',
     });
     this._cardList = new CardList(document.querySelector('.cards'), {
       Card,
@@ -35,9 +36,9 @@ class Application {
       onAddCardToBookmarks: this._addCardToBookmarks.bind(this),
     });
     this._cardList.setMode('search');
-    this._preloader = new Component(document.querySelector('.preloader'));
-    this._notFound = new Component(document.querySelector('.notfound'));
-    this._found = new Component(document.querySelector('.found'));
+    this._preloader = new Component(document.querySelector('.preloader'), { display: 'block' });
+    this._notFound = new Component(document.querySelector('.notfound'), { display: 'block' });
+    this._found = new Component(document.querySelector('.found'), { display: 'block' });
     this._showMoreButton = new Button(document.querySelector('.button_more'));
 
     const registerPopupElement = document.querySelector('#register');
@@ -62,6 +63,7 @@ class Application {
   }
 
   async start() {
+    this._searchForm.reset();
     await this._loadUserData();
   }
 
