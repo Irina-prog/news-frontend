@@ -6,20 +6,14 @@ export default class CardsList extends Component {
     this._mode = mode;
   }
 
-  setCards(list, more = false) {
-    const changeButtonMore = (display) => {
-      this._element.querySelector('.button_more').style.display = display;
-    };
-    if (this._mode === 'search' && !more) {
+  setCards(list) {
+    if (this._mode === 'search') {
       const top3 = list.slice(0, 2);
-      if (top3.length <= list.length) {
-        changeButtonMore('none');
-      } else {
-        changeButtonMore('');
+      if (top3.length < list.length) {
+        this._options.onNeedMore(list);
       }
       this._renderCards(top3);
     } else {
-      changeButtonMore('none');
       this._renderCards(list);
     }
   }
