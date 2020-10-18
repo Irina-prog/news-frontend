@@ -6,7 +6,11 @@ export default class NewsApi extends JsonApi {
     super(NEWS_API_URL, { headers: { 'X-Api-Key': NEWS_API_TOKEN } });
   }
 
-  getNews(query) {
-    return this._fetchJson(`/v2/top-headlines?country=ru&q=${encodeURIComponent(query)}`);
+  async getNews(query) {
+    const result = this._fetchJson(`/v2/top-headlines?country=ru&q=${encodeURIComponent(query)}`);
+    if (result.status === 'ok') {
+      return result.articles;
+    }
+    return [];
   }
 }

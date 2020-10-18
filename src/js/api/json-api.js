@@ -11,14 +11,17 @@ export default class JsonApi {
       options.body = JSON.stringify(data);
     }
     const response = fetch(`${this._baseUrl}${path}`, options);
-    if (response.ok) {
-      if (response.headers.get('Content-Type').includes('application/json')) {
-        const json = await response.json();
-        return json;
-      }
-      const text = await response.text();
-      return text;
+    let result;
+    if (response.headers.get('Content-Type').includes('application/json')) {
+      result = await response.json();
+    } else {
+      result = await response.text();
     }
-    throw new Error(`Server error ${response.status}`);
+    if (response.ok) {
+      return result;
+    }
+    const error = new Error(result.error || result || `Server error ${response.status}`);
+    error.code = response.status;
+    throw error;
   }
 }
