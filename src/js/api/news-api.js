@@ -8,7 +8,7 @@ export default class NewsApi extends JsonApi {
   }
 
   async getNews(query) {
-    const result = this._fetchJson(`/v2/everything?q=${encodeURIComponent(query)}?from=${toISODate(new Date(Date.now() - 7 * 24 * 3600 * 1000))}&to=${toISODate(new Date())}&pageSize=100`);
+    const result = await this._fetchJson(`/v2/everything?q=${encodeURIComponent(query)}&from=${toISODate(new Date(Date.now() - 7 * 24 * 3600 * 1000))}&to=${toISODate(new Date())}&pageSize=100`);
     if (result.status === 'ok') {
       return result.articles;
     }
