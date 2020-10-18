@@ -6,11 +6,11 @@ export default class CardsList extends Component {
     this._mode = mode;
   }
 
-  setCards(list) {
+  setCards(list, more = false) {
     const changeButtonMore = (display) => {
       this._element.querySelector('.button_more').style.display = display;
     };
-    if (this._mode === 'search') {
+    if (this._mode === 'search' && !more) {
       const top3 = list.slice(0, 2);
       if (top3.length <= list.length) {
         changeButtonMore('none');
