@@ -22,4 +22,14 @@ export default class Card extends Component {
   allowActions(value) {
     this._element.querySelector('.card__button').disabled = !value;
   }
+
+  setMarked() {
+    if (this._options.mode !== 'search') {
+      return;
+    }
+
+    const button = this._element.querySelector('.card__button');
+    button.classList.remove('card__button_bookmark');
+    button.classList.add('card__button_marked-bookmark');
+  }
 }

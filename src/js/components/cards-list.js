@@ -40,12 +40,12 @@ export default class CardsList extends Component {
         onButtonClick: this._mode === 'search'
           ? () => {
             if (this._allowCardActions) {
-              this.onAddCardToBookmarks(item, card);
+              this._options.onAddCardToBookmarks(item, card);
             }
           }
           : () => {
             if (this._allowCardActions) {
-              this.onRemoveCardFromBookmarks(item, card).then(() => card.destroy());
+              this._options.onRemoveCardFromBookmarks(item, card).then(() => card.destroy());
             }
           },
       });

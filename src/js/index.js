@@ -3,6 +3,7 @@ import MainApi from './api/main-api';
 import NewsApi from './api/news-api';
 import Header from './components/header';
 import CardList from './components/cards-list';
+import Card from './components/card';
 import Form from './components/form';
 import Component from './components/component';
 import Button from './components/button';
@@ -19,7 +20,10 @@ class Application {
       onSubmit: this._searchArticles.bind(this),
     });
     this._cardList = new CardList(document.querySelector('.cards'), {
+      Card,
+      cardTemplate: document.querySelector('#card'),
       onNeedMore: this._needMore.bind(this),
+      onAddCardToBookmarks: this._addCardToBookmarks.bind(this),
     });
     this._cardList.setMode('search');
     this._preloader = new Component(document.querySelector('.preloader'));
@@ -74,6 +78,11 @@ class Application {
     } finally {
       this._preloader.hide();
     }
+  }
+
+  async _addCardToBookmarks(cardData, card) {
+    await this._mainApi.createArticle(cardData);
+    card.setMarked();
   }
 
   _needMore() {
