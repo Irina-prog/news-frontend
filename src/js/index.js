@@ -7,13 +7,22 @@ import Card from './components/card';
 import Form from './components/form';
 import Component from './components/component';
 import Button from './components/button';
+import HamburgerButton from './components/hamburger-button';
+import Popup from './components/popup';
 
 class Application {
   constructor() {
+    const getErrorViewForInput = (input) => input.nextElementSibling;
+
     this._mainApi = new MainApi();
     this._newsApi = new NewsApi();
 
-    this._header = new Header(document.querySelector('.header'));
+    this._header = new Header(document.querySelector('.header'), {
+      HamburgerButton,
+      document,
+      window,
+      onLogin: this._onLogin.bind(this),
+    });
     this._header.setTheme('main');
     this._searchForm = new Form(document.querySelector('.header__bar'), {
       getErrorViewForInput: () => null, // TODO return error element for search form
@@ -30,6 +39,23 @@ class Application {
     this._notFound = new Component(document.querySelector('.notfound'));
     this._found = new Component(document.querySelector('.found'));
     this._showMoreButton = new Button(document.querySelector('.button_more'));
+    this._registerPopup = new Popup(document.querySelector('#register'), {
+      onLinkClick: this._onLogin.bind(this),
+    });
+    this._registeredPopup = new Popup(document.querySelector('#registered'), {
+      onLinkClick: this._onLogin.bind(this),
+    });
+    this._loginPopup = new Popup(document.querySelector('#login'), {
+      onLinkClick: this._onRegister.bind(this),
+    });
+    this._registerForm = new Form(this._registerPopup.querySelector('.popup__form'), {
+      getErrorViewForInput,
+      onSubmit: this._register.bind(this),
+    });
+    this._loginForm = new Form(this._loginPopup.querySelector('.popup__form'), {
+      getErrorViewForInput,
+      onSubmit: this._login.bind(this),
+    });
   }
 
   async start() {
@@ -83,6 +109,39 @@ class Application {
   async _addCardToBookmarks(cardData, card) {
     await this._mainApi.createArticle(cardData);
     card.setMarked();
+  }
+
+  _onLogin() {
+    this._registerPopup.hide();
+    this._loginForm.reset();
+    this._loginPopup.show();
+  }
+
+  _onRegister() {
+    this._loginPopup.hide();
+    this._registerForm.reset();
+    this._registerPopup.show();
+  }
+
+  async _register(data) {
+    try {
+      await this._mainApi.signup(data);
+    } catch (err) {
+      this._registerForm.setError(err.message);
+    }
+    this._registerPopup.hide();
+    this._registeredPopup.show();
+  }
+
+  async _login(data) {
+    try {
+      await this._mainApi.signin(data);
+    } catch (err) {
+      this._loginForm.setError(err.message);
+    }
+
+    this._loginPopup.hide();
+    await this._loadUserData();
   }
 
   _needMore() {

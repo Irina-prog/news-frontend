@@ -14,8 +14,12 @@ export default class Popup extends Component {
     if (closeButton) {
       closeButton.addEventListener('click', this.close.bind(this));
     }
-    if (typeof this._options.createChildComponent === 'function') {
-      this._options.createChildComponent(this._element);
+    const link = this._element.querySelector('.popup__link');
+    if (link) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        this._options.onLinkClick();
+      });
     }
   }
 }

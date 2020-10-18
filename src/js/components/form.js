@@ -65,6 +65,7 @@ export default class Form extends Component {
     });
     this._element.reset();
     this._setSubmitButtonState(false);
+    this.setError();
   }
 
   setValues(data) {
@@ -72,6 +73,13 @@ export default class Form extends Component {
       input.value = data[input.name]; /* eslint-disable-line no-param-reassign */
     });
     this._updateSubmitButtonState();
+  }
+
+  setError(errorText) {
+    const error = this._element.querySelector('.popup__error');
+    if (error) {
+      error.textContent = errorText || '';
+    }
   }
 
   _initialize() {
