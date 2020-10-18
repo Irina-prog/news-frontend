@@ -6,14 +6,19 @@ export default class Header extends Component {
   }
 
   setUserData(data) {
+    const userText = this._element.querySelector('.header__user-text');
+    const menu = this._element.querySelector('.header__menu-user');
+    const bookmarksMenuItem = this._element.querySelector('#bookmarksMenuItem');
     if (data) {
-      this._element.querySelector('.header__user-text').textContent = data.name;
-      this._element.querySelector('.header__menu-user').classList.add('header__menu-user_signedin');
-      this._element.querySelector('.header__menu-user').removeEventListener(this._options.onLogin);
+      userText.textContent = data.name;
+      menu.classList.add('header__menu-user_signedin');
+      menu.removeEventListener('click', this._options.onLogin);
+      bookmarksMenuItem.style.display = '';
     } else {
-      this._element.querySelector('.header__user-text').textContent = 'Авторизоваться';
-      this._element.querySelector('.header__menu-user').classList.remove('header__menu-user_signedin');
-      this._element.querySelector('.header__menu-user').addEventListener(this._options.onLogin);
+      userText.textContent = 'Авторизоваться';
+      menu.classList.remove('header__menu-user_signedin');
+      menu.addEventListener('click', this._options.onLogin);
+      bookmarksMenuItem.style.display = 'none';
     }
   }
 

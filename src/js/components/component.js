@@ -18,7 +18,7 @@ export default class Component {
   }
 
   show() {
-    this._element.style.display = '';
+    this._element.style.display = this._options.display || '';
   }
 
   hide() {

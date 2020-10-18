@@ -39,20 +39,23 @@ class Application {
     this._notFound = new Component(document.querySelector('.notfound'));
     this._found = new Component(document.querySelector('.found'));
     this._showMoreButton = new Button(document.querySelector('.button_more'));
-    this._registerPopup = new Popup(document.querySelector('#register'), {
+
+    const registerPopupElement = document.querySelector('#register');
+    this._registerPopup = new Popup(registerPopupElement, {
       onLinkClick: this._onLogin.bind(this),
     });
     this._registeredPopup = new Popup(document.querySelector('#registered'), {
       onLinkClick: this._onLogin.bind(this),
     });
-    this._loginPopup = new Popup(document.querySelector('#login'), {
+    const loginPopupElement = document.querySelector('#login');
+    this._loginPopup = new Popup(loginPopupElement, {
       onLinkClick: this._onRegister.bind(this),
     });
-    this._registerForm = new Form(this._registerPopup.querySelector('.popup__form'), {
+    this._registerForm = new Form(registerPopupElement.querySelector('.popup__form'), {
       getErrorViewForInput,
       onSubmit: this._register.bind(this),
     });
-    this._loginForm = new Form(this._loginPopup.querySelector('.popup__form'), {
+    this._loginForm = new Form(loginPopupElement.querySelector('.popup__form'), {
       getErrorViewForInput,
       onSubmit: this._login.bind(this),
     });
@@ -77,7 +80,7 @@ class Application {
 
   _setUserData(data) {
     this._header.setUserData(data);
-    this._cardList.allowCardActions(Boolean(data));
+    this._cardList.allowCardActions = Boolean(data);
   }
 
   async _searchArticles({ keyword }) {
@@ -112,6 +115,7 @@ class Application {
   }
 
   _onLogin() {
+    this._registeredPopup.hide();
     this._registerPopup.hide();
     this._loginForm.reset();
     this._loginPopup.show();
@@ -126,22 +130,21 @@ class Application {
   async _register(data) {
     try {
       await this._mainApi.signup(data);
+      this._registerPopup.hide();
+      this._registeredPopup.show();
     } catch (err) {
       this._registerForm.setError(err.message);
     }
-    this._registerPopup.hide();
-    this._registeredPopup.show();
   }
 
   async _login(data) {
     try {
       await this._mainApi.signin(data);
+      this._loginPopup.hide();
+      await this._loadUserData();
     } catch (err) {
       this._loginForm.setError(err.message);
     }
-
-    this._loginPopup.hide();
-    await this._loadUserData();
   }
 
   _needMore() {

@@ -26,7 +26,7 @@ export default class CardsList extends Component {
   }
 
   get allowCardActions() {
-    return this._allowCardActions;
+    return this._allowCardActions || false;
   }
 
   _renderCards(list) {

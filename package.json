@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && cross-env webpack --mode production",
-    "dev": "cross-env webpack-dev-server --mode development --open --watch",
+    "dev": "cross-env webpack-dev-server --mode development --watch",
     "deploy": "cross-env gh-pages -d dist",
     "lint": "eslint . --ignore-pattern public",
     "lint:fix": "eslint . --ignore-pattern public --fix"

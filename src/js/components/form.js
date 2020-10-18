@@ -60,7 +60,7 @@ export default class Form extends Component {
 
   reset() {
     this._getInputs().forEach((input) => {
-      const errorView = this._getErrorViewForInput(input);
+      const errorView = this._options.getErrorViewForInput(input);
       errorView.textContent = '';
     });
     this._element.reset();
