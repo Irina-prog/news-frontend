@@ -27,6 +27,6 @@ export default class MainApi extends JsonApi {
   }
 
   removeArticle(id) {
-    return this._fetchJson(`/cards/${id}`, 'DELETE');
+    return this._fetchJson(`/articles/${id}`, 'DELETE');
   }
 }

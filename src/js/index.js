@@ -100,11 +100,11 @@ class Application {
       const cardList = articles.map((article) => ({
         keyword,
         title: article.title,
-        text: article.content,
+        text: article.description,
         date: article.publishedAt,
         source: article.source.name,
         link: article.url,
-        image: article.urlToImage,
+        image: article.urlToImage || `${window.location.origin}/images/notfound.svg`,
       }));
       if (cardList.length === 0) {
         this._notFound.show();

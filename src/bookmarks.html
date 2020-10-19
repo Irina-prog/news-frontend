@@ -18,14 +18,19 @@
       <div class="header__hamburger"></div>
       <ul class="header__menu">
         <li class="header__menu-item"><a href="./index.html">Главная</a></li>
-        <li class="header__menu-item header__menu_active"><a href="./bookmarks.html">Сохраненные статьи</a></li>
+        <li class="header__menu-item header__menu_active" id="bookmarksMenuItem"><a href="./bookmarks.html">Сохраненные статьи</a></li>
         <li class="header__menu-user header__menu-user_signedin">
-          <p class="header__user-text">Грета</p><img class="header__signout-icon"
+          <p class="header__user-text"></p><img class="header__signout-icon"
             src="<%=require('./images/signout.svg')%>" alt="signout">
         </li>
       </ul>
     </nav>
   </header>
+  <div class="preloader">
+    <div class="preloader__container">
+      <i class="preloader__circle"></i>
+    </div>
+  </div>
   <main class="main">
     <section class="summary">
       <p class="summary__subtitle">Сохранённые статьи</p>
@@ -34,72 +39,8 @@
     </section>
     <section class="bookmarks">
       <div class="cards">
-
-
-
-        <div class="card">
-          <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card5.jpg')%>" alt="Природа">
-            <button class="card__button card__button_trash"></button>
-            <p class="card__tag">Природа</p>
-          </div>
-          <div class="card__body">
-            <h4 class="card__date">2 августа, 2019</h4>
-            <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-              из местных чудес природы.</p>
-            <p class="card__source">Медуза</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card6.jpg')%>" alt="Тайга">
-            <button class="card__button card__button_trash"></button>
-            <p class="card__tag">Тайга</p>
-          </div>
-          <div class="card__body">
-            <h4 class="card__date">2 августа, 2019</h4>
-            <h3 class="card__title">Национальное достояние – парки</h3>
-            <p class="card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу</p>
-            <p class="card__source">Лента.ру</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card7.jpg')%>" alt="Парки">
-            <button class="card__button card__button_trash"></button>
-            <p class="card__tag">Парки</p>
-          </div>
-          <div class="card__body">
-            <h4 class="card__date">2 августа, 2019</h4>
-            <h3 class="card__title">Национальное достояние – парки</h3>
-            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-              складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к
-              природе.</p>
-            <p class="card__source">Лента.ру</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card__header">
-            <img class="card__image" src="<%=require('./images/card8.jpg')%>" alt="Фотография">
-            <button class="card__button card__button_trash"></button>
-            <p class="card__tag">Фотография</p>
-          </div>
-          <div class="card__body">
-            <h4 class="card__date">2 августа, 2019</h4>
-            <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-              из местных чудес природы.</p>
-            <p class="card__source">Лента.ру</p>
-          </div>
-        </div>
+      </div>
     </section>
-
-
-    </div>
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2020 Irina Belchikova, Powered by News API</p>
@@ -112,7 +53,7 @@
         src="<%=require('./images/facebook.svg')%>" alt="facebook"></a></li>
     </ul>
   </footer>
-  <template id="card">
+  <template id="card" type="text/html">
     <div class="card">
       <div class="card__header">
         <img class="card__image" src="" alt="">

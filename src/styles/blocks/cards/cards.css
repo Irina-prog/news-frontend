@@ -5,6 +5,6 @@
   flex-wrap: wrap;
 }
 
-.cards.cards_search .card__tag {
+.cards.cards_search .card__tag, .cards.cards_bookmarks {
   display: none;
 }
