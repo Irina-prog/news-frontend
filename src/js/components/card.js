@@ -14,7 +14,7 @@ export default class Card extends Component {
     this._element.querySelector('.card__tag').textContent = data.keyword;
     this._element.querySelector('.card__date').textContent = formatDate(data.date);
     this._element.querySelector('.card__title').textContent = data.title;
-    this._element.querySelector('.card__text').textContent = data.text;
+    this._element.querySelector('.card__text').innerHtml = data.text;
     this._element.querySelector('.card__source').textContent = data.source;
     this._element.setAttribute('href', data.link);
   }

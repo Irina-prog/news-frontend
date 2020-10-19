@@ -39,7 +39,7 @@ class Application {
     this._preloader = new Component(document.querySelector('.preloader'), { display: 'block' });
     this._notFound = new Component(document.querySelector('.notfound'), { display: 'block' });
     this._found = new Component(document.querySelector('.found'), { display: 'block' });
-    this._showMoreButton = new Button(document.querySelector('.button_more'));
+    this._showMoreButton = new Button(document.querySelector('.button_more'), { display: 'block', onClick: this._onShowMore.bind(this) });
 
     const registerPopupElement = document.querySelector('#register');
     this._registerPopup = new Popup(registerPopupElement, {
@@ -109,6 +109,11 @@ class Application {
     } finally {
       this._preloader.hide();
     }
+  }
+
+  _onShowMore() {
+    this._showMoreButton.hide();
+    this._cardList.showMoreCards();
   }
 
   async _addCardToBookmarks(cardData, card) {

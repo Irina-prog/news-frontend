@@ -1,4 +1,5 @@
 import Component from './component';
+import { CARDS_TO_SHOW } from '../constants';
 
 export default class CardsList extends Component {
   setMode(mode) {
@@ -6,15 +7,23 @@ export default class CardsList extends Component {
     this._mode = mode;
   }
 
-  setCards(list) {
+  setCards(list, removeExistings = true) {
     if (this._mode === 'search') {
-      const top3 = list.slice(0, 2);
-      if (top3.length < list.length) {
-        this._options.onNeedMore(list);
+      this._list = list;
+      const top = list.slice(0, CARDS_TO_SHOW);
+      if (top.length < list.length) {
+        this._options.onNeedMore();
       }
-      this._renderCards(top3);
+      this._renderCards(top, removeExistings);
     } else {
-      this._renderCards(list);
+      this._renderCards(list, removeExistings);
+    }
+  }
+
+  showMoreCards() {
+    if (this._mode === 'search' && this._list?.length > 0) {
+      this._list = this._list.slice(CARDS_TO_SHOW);
+      this.setCards(this._list, false);
     }
   }
 
@@ -29,8 +38,10 @@ export default class CardsList extends Component {
     return this._allowCardActions || false;
   }
 
-  _renderCards(list) {
-    this._cards?.forEach((card) => card.destroy());
+  _renderCards(list, removeExistings = true) {
+    if (removeExistings) {
+      this._cards?.forEach((card) => card.destroy());
+    }
     this._cards = list.map((item) => {
       const card = new this._options.Card(this._element, {
         data: item,
