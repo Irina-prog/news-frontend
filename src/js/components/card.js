@@ -10,7 +10,7 @@ export default class Card extends Component {
     const button = this._element.querySelector('.card__button');
     button.classList.add(this._options.mode === 'search' ? 'card__button_bookmark' : 'card__button_trash');
     button.addEventListener('click', this._options.onButtonClick);
-    button.disabled = this._options.allowCardActions;
+    button.disabled = !this._options.allowCardActions;
     this._element.querySelector('.card__tag').textContent = data.keyword;
     this._element.querySelector('.card__date').textContent = formatDate(data.date);
     this._element.querySelector('.card__title').textContent = data.title;
@@ -31,5 +31,6 @@ export default class Card extends Component {
     const button = this._element.querySelector('.card__button');
     button.classList.remove('card__button_bookmark');
     button.classList.add('card__button_marked-bookmark');
+    this.allowActions(false);
   }
 }

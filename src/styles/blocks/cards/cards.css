@@ -4,3 +4,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.cards.cards_search .card__tag {
+  display: none;
+}
