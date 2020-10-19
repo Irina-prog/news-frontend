@@ -9,7 +9,8 @@ export default class Card extends Component {
     cardImage.setAttribute('alt', data.title);
     const button = this._element.querySelector('.card__button');
     button.classList.add(this._options.mode === 'search' ? 'card__button_bookmark' : 'card__button_trash');
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
       if (this._options.allowCardActions) {
         this._options.onButtonClick();
       }
