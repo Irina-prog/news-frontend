@@ -41,8 +41,9 @@ export default class CardsList extends Component {
   _renderCards(list, removeExistings = true) {
     if (removeExistings) {
       this._cards?.forEach((card) => card.destroy());
+      this._cards = [];
     }
-    this._cards = list.map((item) => {
+    this._cards = this._cards.concat(list.map((item) => {
       const card = new this._options.Card(this._element, {
         data: item,
         template: this._options.cardTemplate,
@@ -61,6 +62,6 @@ export default class CardsList extends Component {
           },
       });
       return card;
-    });
+    }));
   }
 }
