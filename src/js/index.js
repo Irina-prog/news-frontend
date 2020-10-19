@@ -9,6 +9,7 @@ import Component from './components/component';
 import Button from './components/button';
 import HamburgerButton from './components/hamburger-button';
 import Popup from './components/popup';
+import Tooltip from './components/tooltip';
 
 class Application {
   constructor() {
@@ -30,10 +31,15 @@ class Application {
       requiredFiledText: 'Нужно ввести ключевое слово',
     });
     this._cardList = new CardList(document.querySelector('.cards'), {
+      document,
       Card,
+      Tooltip,
       cardTemplate: document.querySelector('#card'),
       onNeedMore: this._needMore.bind(this),
       onAddCardToBookmarks: this._addCardToBookmarks.bind(this),
+      addBookmarkTooltipText: 'Добавить в сохраненные',
+      removeBookmarkTooltipText: 'Убрать из сохраненных',
+      disabledTooltipText: 'Войдите, чтобы сохранять статьи',
     });
     this._cardList.setMode('search');
     this._preloader = new Component(document.querySelector('.preloader'), { display: 'block' });

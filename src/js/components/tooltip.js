@@ -1,12 +1,18 @@
 import Component from './component';
 
 export default class Tooltip extends Component {
+  setTooltipText(text) {
+    this._tooltipText = text;
+  }
+
   _initialize() {
     let tooltipTimer = null;
     this._element.addEventListener('mouseover', (e) => {
       clearTimeout(tooltipTimer);
       tooltipTimer = setTimeout(() => {
-        this._showTooltip(e.target, this._options.tooltipText);
+        if (this._tooltipText) {
+          this._showTooltip(e.target, this._tooltipText);
+        }
       }, 500);
     });
   }

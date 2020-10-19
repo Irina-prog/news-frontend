@@ -45,10 +45,15 @@ export default class CardsList extends Component {
     }
     this._cards = this._cards.concat(list.map((item) => {
       const card = new this._options.Card(this._element, {
+        document: this._options.document,
+        Tooltip: this._options.Tooltip,
         data: item,
         template: this._options.cardTemplate,
         allowCardActions: this._allowCardActions,
         mode: this._mode,
+        addBookmarkTooltipText: this._options.addBookmarkTooltipText,
+        removeBookmarkTooltipText: this._options.removeBookmarkTooltipText,
+        disabledTooltipText: this._options.disabledTooltipText,
         onButtonClick: this._mode === 'search'
           ? () => {
             if (this._allowCardActions) {
