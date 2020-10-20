@@ -54,6 +54,7 @@ export default class CardsList extends Component {
         addBookmarkTooltipText: this._options.addBookmarkTooltipText,
         removeBookmarkTooltipText: this._options.removeBookmarkTooltipText,
         disabledTooltipText: this._options.disabledTooltipText,
+        tooltipClass: this._options.tooltipClass,
         onButtonClick: this._mode === 'search'
           ? () => {
             if (this._allowCardActions) {

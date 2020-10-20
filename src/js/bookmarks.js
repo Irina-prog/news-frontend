@@ -23,6 +23,7 @@ class Application {
       document,
       Card,
       Tooltip,
+      tooltipClass: 'card__tooltip',
       cardTemplate: document.querySelector('#card'),
       onRemoveCardFromBookmarks: this._removeCardFromBookmarks.bind(this),
       removeBookmarkTooltipText: 'Убрать из сохраненных',

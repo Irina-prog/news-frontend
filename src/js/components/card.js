@@ -15,7 +15,10 @@ export default class Card extends Component {
         this._options.onButtonClick();
       }
     });
-    this._tooltip = new this._options.Tooltip(button, { document: this._options.document });
+    this._tooltip = new this._options.Tooltip(button, {
+      document: this._options.document,
+      tooltipClass: this._options.tooltipClass,
+    });
     this._tooltip.setTooltipText(this._options.mode === 'search' ? this._options.addBookmarkTooltipText : this._options.removeBookmarkTooltipText);
     this.allowActions(this._options.allowCardActions);
     this._element.querySelector('.card__tag').textContent = data.keyword;

@@ -6,12 +6,12 @@ export default class Tooltip extends Component {
   }
 
   _initialize() {
-    let tooltipTimer = null;
-    this._element.addEventListener('mouseover', (e) => {
-      clearTimeout(tooltipTimer);
-      tooltipTimer = setTimeout(() => {
+    this._tooltipTimer = null;
+    this._element.addEventListener('mouseover', () => {
+      clearTimeout(this._tooltipTimer);
+      this._tooltipTimer = setTimeout(() => {
         if (this._tooltipText) {
-          this._showTooltip(e.target, this._tooltipText);
+          this._showTooltip(this._element, this._tooltipText);
         }
       }, 500);
     });

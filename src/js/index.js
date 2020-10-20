@@ -34,11 +34,11 @@ class Application {
       document,
       Card,
       Tooltip,
+      tooltipClass: 'card__tooltip',
       cardTemplate: document.querySelector('#card'),
       onNeedMore: this._needMore.bind(this),
       onAddCardToBookmarks: this._addCardToBookmarks.bind(this),
       addBookmarkTooltipText: 'Добавить в сохраненные',
-      removeBookmarkTooltipText: 'Убрать из сохраненных',
       disabledTooltipText: 'Войдите, чтобы сохранять статьи',
     });
     this._cardList.setMode('search');
