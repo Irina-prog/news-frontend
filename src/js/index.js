@@ -27,7 +27,7 @@ class Application {
     this._header.setTheme('main');
     this._searchForm = new Form(document.querySelector('.header__bar'), {
       getErrorViewForInput: () => document.querySelector('.header__search-error'),
-      onSubmit: this._searchArticles.bind(this),
+      onSubmit: (data) => this._runAsync(this._searchArticles, data),
       requiredFiledText: 'Нужно ввести ключевое слово',
     });
     this._cardList = new CardList(document.querySelector('.cards'), {
@@ -37,7 +37,7 @@ class Application {
       tooltipClass: 'card__tooltip',
       cardTemplate: document.querySelector('#card'),
       onNeedMore: this._needMore.bind(this),
-      onAddCardToBookmarks: this._addCardToBookmarks.bind(this),
+      onAddCardToBookmarks: (card, data) => this._runAsync(this._addCardToBookmarks, card, data),
       addBookmarkTooltipText: 'Добавить в сохраненные',
       disabledTooltipText: 'Войдите, чтобы сохранять статьи',
     });
@@ -66,11 +66,16 @@ class Application {
       getErrorViewForInput,
       onSubmit: this._login.bind(this),
     });
+    const errorPopupElement = document.querySelector('#error');
+    this._errorPopup = new Popup(errorPopupElement);
+    this._errorTextElement = errorPopupElement.querySelector('p');
+    this._runAsync = (action, ...params) => action.apply(this, params)
+      .catch(this._errorHandler.bind(this));
   }
 
   async start() {
     this._searchForm.reset();
-    await this._loadUserData();
+    await this._runAsync(this._loadUserData);
   }
 
   async _loadUserData() {
@@ -162,6 +167,11 @@ class Application {
 
   _needMore() {
     this._showMoreButton.show();
+  }
+
+  _errorHandler(err) {
+    this._errorTextElement.textContent = err.message || 'Неизвестная ошибка';
+    this._errorPopup.show();
   }
 }
 
