@@ -76,9 +76,11 @@ export default class Form extends Component {
   }
 
   setError(errorText) {
-    const error = this._element.querySelector('.popup__error');
-    if (error) {
-      error.textContent = errorText || '';
+    // форма может быть не видима в момент создания,
+    // поэтому this._element.querySelector('.popup__error') в _initialize() может вернуть null
+    this._error = this._error || this._element.querySelector('.popup__error');
+    if (this._error) {
+      this._error.textContent = errorText || '';
     }
   }
 

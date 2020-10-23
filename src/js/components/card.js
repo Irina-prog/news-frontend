@@ -5,17 +5,17 @@ export default class Card extends Component {
   _initialize() {
     const { data } = this._options;
     const cardImage = this._element.querySelector('.card__image');
+    this._button = this._element.querySelector('.card__button');
     cardImage.setAttribute('src', data.image || '');
     cardImage.setAttribute('alt', data.title);
-    const button = this._element.querySelector('.card__button');
-    button.classList.add(this._options.mode === 'search' ? 'card__button_bookmark' : 'card__button_trash');
-    button.addEventListener('click', (e) => {
+    this._button.classList.add(this._options.mode === 'search' ? 'card__button_bookmark' : 'card__button_trash');
+    this._button.addEventListener('click', (e) => {
       e.preventDefault();
       if (this._options.allowCardActions) {
         this._options.onButtonClick();
       }
     });
-    this._tooltip = new this._options.Tooltip(button, {
+    this._tooltip = new this._options.Tooltip(this._button, {
       document: this._options.document,
       tooltipClass: this._options.tooltipClass,
     });
@@ -46,9 +46,8 @@ export default class Card extends Component {
       return;
     }
 
-    const button = this._element.querySelector('.card__button');
-    button.classList.remove('card__button_bookmark');
-    button.classList.add('card__button_marked-bookmark');
+    this._button.classList.remove('card__button_bookmark');
+    this._button.classList.add('card__button_marked-bookmark');
     this.allowActions(false);
     this._tooltip.setTooltipText('');
   }
