@@ -14,6 +14,11 @@ export default class MainApi extends JsonApi {
     return this._fetchJson('/signin', 'POST', data);
   }
 
+  async signout() {
+    await this._fetchJson('/signout', 'POST');
+    window.location.reload();
+  }
+
   getUserData() {
     return this._fetchJson('/users/me');
   }

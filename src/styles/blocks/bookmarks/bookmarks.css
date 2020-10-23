@@ -1,5 +1,5 @@
 .bookmarks {
-  display: grid;
+  display: none;
   justify-content: center;
   background: #F5F6F7;;
   padding: 62px 104px;

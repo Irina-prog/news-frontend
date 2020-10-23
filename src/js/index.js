@@ -23,6 +23,7 @@ class Application {
       document,
       window,
       onLogin: this._onLogin.bind(this),
+      onLogout: () => this._runAsync(() => this._mainApi.signout()),
     });
     this._header.setTheme('main');
     this._searchForm = new Form(document.querySelector('.header__bar'), {
