@@ -8,11 +8,7 @@ export default class Form extends Component {
   }
 
   _setSubmitButtonState(enabled) {
-    if (enabled) {
-      this._submitButton.removeAttribute('disabled');
-    } else {
-      this._submitButton.setAttribute('disabled', true);
-    }
+    this._submitButton.disabled = !enabled;
   }
 
   _isValid(input) {
