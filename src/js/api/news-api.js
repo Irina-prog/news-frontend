@@ -4,11 +4,11 @@ import { toISODate } from '../utils/date';
 
 export default class NewsApi extends JsonApi {
   constructor() {
-    super(NEWS_API_URL, { headers: { 'X-Api-Key': NEWS_API_TOKEN } });
+    super(NEWS_API_URL);
   }
 
   async getNews(query) {
-    const result = await this._fetchJson(`/v2/everything?q=${encodeURIComponent(query)}&from=${toISODate(new Date(Date.now() - 7 * 24 * 3600 * 1000))}&to=${toISODate(new Date())}&pageSize=100`);
+    const result = await this._fetchJson(`/v2/everything?q=${encodeURIComponent(query)}&from=${toISODate(new Date(Date.now() - 7 * 24 * 3600 * 1000))}&to=${toISODate(new Date())}&pageSize=100&apiKey=${NEWS_API_TOKEN}`);
     if (result.status === 'ok') {
       return result.articles;
     }
