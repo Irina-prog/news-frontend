@@ -44,9 +44,9 @@ export default class CardsList extends Component {
       this._cards = [];
     }
     this._cards = this._cards.concat(list.map((item) => {
-      const card = new this._options.Card(this._element, {
+      const card = this._options.getCard(this._element, {
         document: this._options.document,
-        Tooltip: this._options.Tooltip,
+        getTooltip: this._options.getTooltip,
         data: item,
         template: this._options.cardTemplate,
         allowCardActions: this._allowCardActions,

@@ -15,7 +15,7 @@ export default class Card extends Component {
         this._options.onButtonClick();
       }
     });
-    this._tooltip = new this._options.Tooltip(this._button, {
+    this._tooltip = this._options.getTooltip(this._button, {
       document: this._options.document,
       tooltipClass: this._options.tooltipClass,
     });

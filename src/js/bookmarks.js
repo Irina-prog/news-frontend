@@ -14,7 +14,7 @@ class Application {
     this._mainApi = new MainApi();
 
     this._header = new Header(document.querySelector('.header'), {
-      HamburgerButton,
+      getHamburgerButton: (element, options) => new HamburgerButton(element, options),
       document,
       window,
       onLogout: () => this._runAsync(() => this._mainApi.signout()),
@@ -24,8 +24,8 @@ class Application {
     this._cardList = new CardList(document.querySelector('.cards'), {
       display: 'flex',
       document,
-      Card,
-      Tooltip,
+      getCard: (element, options) => new Card(element, options),
+      getTooltip: (element, options) => new Tooltip(element, options),
       tooltipClass: 'card__tooltip',
       cardTemplate: document.querySelector('#card'),
       onRemoveCardFromBookmarks: removeCard,

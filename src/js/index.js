@@ -19,7 +19,7 @@ class Application {
     this._newsApi = new NewsApi();
 
     this._header = new Header(document.querySelector('.header'), {
-      HamburgerButton,
+      getHamburgerButton: (element, options) => new HamburgerButton(element, options),
       document,
       window,
       onLogin: this._onLogin.bind(this),
@@ -33,8 +33,8 @@ class Application {
     });
     this._cardList = new CardList(document.querySelector('.cards'), {
       document,
-      Card,
-      Tooltip,
+      getCard: (element, options) => new Card(element, options),
+      getTooltip: (element, options) => new Tooltip(element, options),
       tooltipClass: 'card__tooltip',
       cardTemplate: document.querySelector('#card'),
       onNeedMore: this._needMore.bind(this),

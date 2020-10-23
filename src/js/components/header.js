@@ -22,8 +22,8 @@ export default class Header extends Component {
   }
 
   _initialize() {
-    const { HamburgerButton, ...hamburgerOptions } = this._options;
-    this._hamburgerButton = new HamburgerButton(this._element.querySelector('.header__hamburger'), hamburgerOptions);
+    const { getHamburgerButton, ...hamburgerOptions } = this._options;
+    this._hamburgerButton = getHamburgerButton(this._element.querySelector('.header__hamburger'), hamburgerOptions);
     this._userText = this._element.querySelector('.header__user-text');
     this._menu = this._element.querySelector('.header__menu-user');
     this._bookmarksMenuItem = this._element.querySelector('#bookmarksMenuItem');
