@@ -2,7 +2,7 @@
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   background-image: none;
-  z-index: 10;
+  z-index: 100;
 }
 
 .header.header_visible-mobile-menu .header__hamburger{
