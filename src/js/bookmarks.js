@@ -20,7 +20,7 @@ class Application {
       onLogout: () => this._runAsync(() => this._mainApi.signout()),
     });
     this._header.setTheme('bookmarks');
-    const rmBookmark = (data, card) => this._runAsync(this._removeCardFromBookmarks, data, card);
+    const removeCard = (data, card) => this._runAsync(this._removeCardFromBookmarks, data, card);
     this._cardList = new CardList(document.querySelector('.cards'), {
       display: 'flex',
       document,
@@ -28,7 +28,7 @@ class Application {
       Tooltip,
       tooltipClass: 'card__tooltip',
       cardTemplate: document.querySelector('#card'),
-      onRemoveCardFromBookmarks: rmBookmark,
+      onRemoveCardFromBookmarks: removeCard,
       removeBookmarkTooltipText: 'Убрать из сохраненных',
     });
     this._cardList.allowCardActions = true;
