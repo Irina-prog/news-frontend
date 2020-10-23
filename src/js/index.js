@@ -148,21 +148,27 @@ class Application {
 
   async _register(data) {
     try {
+      this._registerForm.allowEdit(false);
       await this._mainApi.signup(data);
       this._registerPopup.hide();
       this._registeredPopup.show();
     } catch (err) {
       this._registerForm.setError(err.message);
+    } finally {
+      this._registerForm.allowEdit(true);
     }
   }
 
   async _login(data) {
     try {
+      this._loginForm.allowEdit(false);
       await this._mainApi.signin(data);
       this._loginPopup.hide();
       await this._loadUserData();
     } catch (err) {
       this._loginForm.setError(err.message);
+    } finally {
+      this._loginForm.allowEdit(true);
     }
   }
 

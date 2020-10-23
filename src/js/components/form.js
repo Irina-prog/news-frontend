@@ -82,6 +82,13 @@ export default class Form extends Component {
     }
   }
 
+  allowEdit(allow) {
+    [...this._element.elements].forEach((input) => {
+      /* eslint-disable-next-line no-param-reassign */
+      input.disabled = !allow;
+    });
+  }
+
   _initialize() {
     this._submitButton = this._element.querySelector('button[type="submit"]');
     this._element.addEventListener('submit', this._submit.bind(this));
