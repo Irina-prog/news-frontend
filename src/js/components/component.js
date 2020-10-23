@@ -3,12 +3,16 @@ export default class Component {
     this._options = options;
     if (options.template?.content) {
       this._element = options.template.content.firstElementChild.cloneNode(true);
-      element.appendChild(this._element);
     } else {
       this._element = element;
     }
     if (typeof this._initialize === 'function') {
       this._initialize();
+    }
+    if (options.template?.content) {
+      // Добавляем созданный элемент из шаблона в родительский только
+      // после его подготовки (вызова _initialize())
+      element.appendChild(this._element);
     }
   }
 

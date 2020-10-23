@@ -6,10 +6,14 @@ export default class MainApi extends JsonApi {
     super(MAIN_API_URL);
   }
 
+  // Обработка ошибок выполнена в месте вызова API-методов
+
   signup(data) {
     return this._fetchJson('/signup', 'POST', data);
   }
 
+  // JWT Token хранится в виде cookie
+  // Из JS он не доступен
   signin(data) {
     return this._fetchJson('/signin', 'POST', data);
   }
