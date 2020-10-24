@@ -80,7 +80,6 @@ module.exports = {
     }),
     new WebpackMd5Hash(),
   ],
-  devtool: 'inline-source-map',
   devServer: {
     proxy: {
       '/api': {
