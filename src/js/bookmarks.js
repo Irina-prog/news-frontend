@@ -22,7 +22,7 @@ class Application {
     this._header.setTheme('bookmarks');
     const removeCard = (data, card) => this._runAsync(this._removeCardFromBookmarks, data, card);
     this._cardList = new CardList(document.querySelector('.cards'), {
-      display: 'flex',
+      display: 'grid',
       document,
       getCard: (element, options) => new Card(element, options),
       getTooltip: (element, options) => new Tooltip(element, options),
@@ -35,7 +35,7 @@ class Application {
     this._cardList.setMode('bookmarks');
     this._summary = new Summary(document.querySelector('.summary'), { display: 'block' });
     this._preloader = new Component(document.querySelector('.preloader'), { display: 'block' });
-    this._bookmarks = new Component(document.querySelector('.bookmarks'), { display: 'grid' });
+    this._bookmarks = new Component(document.querySelector('.bookmarks'), { display: 'block' });
     const errorPopupElement = document.querySelector('#error');
     this._errorPopup = new Popup(errorPopupElement);
     this._errorTextElement = errorPopupElement.querySelector('p');
