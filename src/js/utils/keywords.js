@@ -12,7 +12,7 @@ export function getOrderedKeywordsByUsage(cards) {
 
 export function formatKeywords(keywords) {
   if (keywords.length > 3) {
-    return `${keywords.slice(0, 1).map(({ keyword }) => `<span class="summary__keyword"">${keyword}</span>`).join(', ')} и <span class="summary__keyword"">ещё ${keywords.length - 2}-м другим</span>`;
+    return `${keywords.slice(0, 2).map(({ keyword }) => `<span class="summary__keyword"">${keyword}</span>`).join(', ')} и <span class="summary__keyword"">ещё ${keywords.length - 2}-м другим</span>`;
   }
 
   let formattedKeywords = keywords.map(({ keyword }) => `<span class="summary__keyword"">${keyword}</span>`);
