@@ -1,132 +1,188 @@
 import '../styles/index.css';
-import './hamburger';
+import MainApi from './api/main-api';
+import NewsApi from './api/news-api';
+import Header from './components/header';
+import CardList from './components/cards-list';
+import Card from './components/card';
+import Form from './components/form';
+import Component from './components/component';
+import Button from './components/button';
+import HamburgerButton from './components/hamburger-button';
+import Popup from './components/popup';
+import Tooltip from './components/tooltip';
 
-import showTooltip from './tooltip';
+class Application {
+  constructor() {
+    const getErrorViewForInput = (input) => input.nextElementSibling;
 
-function showPopup(popup) {
-  const form = popup.querySelector('form');
-  if (form) {
-    form.reset();
-    form.querySelector('.button_form').disabled = true;
+    this._mainApi = new MainApi();
+    this._newsApi = new NewsApi();
+
+    this._header = new Header(document.querySelector('.header'), {
+      getHamburgerButton: (element, options) => new HamburgerButton(element, options),
+      document,
+      window,
+      onLogin: this._onLogin.bind(this),
+      onLogout: () => this._runAsync(() => this._mainApi.signout()),
+    });
+    this._header.setTheme('main');
+    this._searchForm = new Form(document.querySelector('.header__bar'), {
+      getErrorViewForInput: () => document.querySelector('.header__search-error'),
+      onSubmit: (data) => this._runAsync(this._searchArticles, data),
+      requiredFiledText: 'Нужно ввести ключевое слово',
+    });
+    this._cardList = new CardList(document.querySelector('.cards'), {
+      document,
+      getCard: (element, options) => new Card(element, options),
+      getTooltip: (element, options) => new Tooltip(element, options),
+      tooltipClass: 'card__tooltip',
+      cardTemplate: document.querySelector('#card'),
+      onNeedMore: this._needMore.bind(this),
+      onAddCardToBookmarks: (card, data) => this._runAsync(this._addCardToBookmarks, card, data),
+      addBookmarkTooltipText: 'Добавить в сохраненные',
+      disabledTooltipText: 'Войдите, чтобы сохранять статьи',
+    });
+    this._cardList.setMode('search');
+    this._preloader = new Component(document.querySelector('.preloader'), { display: 'block' });
+    this._notFound = new Component(document.querySelector('.notfound'), { display: 'block' });
+    this._found = new Component(document.querySelector('.found'), { display: 'block' });
+    this._showMoreButton = new Button(document.querySelector('.button_more'), { display: 'block', onClick: this._onShowMore.bind(this) });
+
+    const registerPopupElement = document.querySelector('#register');
+    this._registerPopup = new Popup(registerPopupElement, {
+      onLinkClick: this._onLogin.bind(this),
+    });
+    this._registeredPopup = new Popup(document.querySelector('#registered'), {
+      onLinkClick: this._onLogin.bind(this),
+    });
+    const loginPopupElement = document.querySelector('#login');
+    this._loginPopup = new Popup(loginPopupElement, {
+      onLinkClick: this._onRegister.bind(this),
+    });
+    this._registerForm = new Form(registerPopupElement.querySelector('.popup__form'), {
+      getErrorViewForInput,
+      onSubmit: this._register.bind(this),
+    });
+    this._loginForm = new Form(loginPopupElement.querySelector('.popup__form'), {
+      getErrorViewForInput,
+      onSubmit: this._login.bind(this),
+    });
+    const errorPopupElement = document.querySelector('#error');
+    this._errorPopup = new Popup(errorPopupElement);
+    this._errorTextElement = errorPopupElement.querySelector('p');
+    this._runAsync = (action, ...params) => action.apply(this, params)
+      .catch(this._errorHandler.bind(this));
   }
-  popup.classList.add('popup_is-opened');
-  document.querySelector('.header__hamburger').style.visibility = 'hidden';
+
+  async start() {
+    this._searchForm.reset();
+    await this._runAsync(this._loadUserData);
+  }
+
+  async _loadUserData() {
+    try {
+      const userData = await this._mainApi.getUserData();
+      this._setUserData(userData);
+    } catch (err) {
+      if (err.code === 401) {
+        this._setUserData(null);
+        return;
+      }
+      throw err;
+    }
+  }
+
+  _setUserData(data) {
+    this._header.setUserData(data);
+    this._cardList.allowCardActions = Boolean(data);
+  }
+
+  async _searchArticles({ keyword }) {
+    this._found.hide();
+    this._notFound.hide();
+    this._preloader.show();
+    try {
+      const articles = await this._newsApi.getNews(keyword);
+      const cardList = articles.map((article) => ({
+        keyword,
+        title: article.title,
+        text: article.description,
+        date: article.publishedAt,
+        source: article.source.name,
+        link: article.url,
+        image: article.urlToImage || `${window.location.origin}/images/notfound.svg`,
+      }));
+      if (cardList.length === 0) {
+        this._notFound.show();
+      } else {
+        this._found.show();
+      }
+      this._cardList.setCards(cardList);
+    } finally {
+      this._preloader.hide();
+    }
+  }
+
+  _onShowMore() {
+    this._showMoreButton.hide();
+    this._cardList.showMoreCards();
+  }
+
+  async _addCardToBookmarks(cardData, card) {
+    await this._mainApi.createArticle(cardData);
+    card.setMarked();
+  }
+
+  _onLogin() {
+    this._registeredPopup.hide();
+    this._registerPopup.hide();
+    this._loginForm.reset();
+    this._loginPopup.show();
+  }
+
+  _onRegister() {
+    this._loginPopup.hide();
+    this._registerForm.reset();
+    this._registerPopup.show();
+  }
+
+  async _register(data) {
+    try {
+      this._registerForm.allowEdit(false);
+      await this._mainApi.signup(data);
+      this._registerPopup.hide();
+      this._registeredPopup.show();
+    } catch (err) {
+      this._registerForm.setError(err.message);
+    } finally {
+      this._registerForm.allowEdit(true);
+    }
+  }
+
+  async _login(data) {
+    try {
+      this._loginForm.allowEdit(false);
+      await this._mainApi.signin(data);
+      this._loginPopup.hide();
+      await this._loadUserData();
+    } catch (err) {
+      this._loginForm.setError(err.message);
+    } finally {
+      this._loginForm.allowEdit(true);
+    }
+  }
+
+  _needMore() {
+    this._showMoreButton.show();
+  }
+
+  _errorHandler(err) {
+    this._errorTextElement.textContent = err.message || 'Неизвестная ошибка';
+    this._errorPopup.show();
+  }
 }
 
-function hidePopup(popup) {
-  popup.classList.remove('popup_is-opened');
-  document.querySelector('.header__hamburger').style.visibility = 'visible';
-}
-
-let authentificated = false;
-
-window.addEventListener('DOMContentLoaded', () => {
-  const foundMoreResults = document.querySelector('.button_more');
-  foundMoreResults.addEventListener('click', () => {
-    const cards = document.querySelector('.cards');
-    document.querySelectorAll('.cards .card').forEach((card) => {
-      cards.appendChild(card.cloneNode(true));
-    });
-    foundMoreResults.style.display = 'none';
-  });
-
-  const preloader = document.querySelector('.preloader');
-  const notFound = document.querySelector('.notfound');
-  const found = document.querySelector('.found');
-
-  const registerPopup = document.querySelector('#register');
-  const loginPopup = document.querySelector('#login');
-  const registeredPopup = document.querySelector('#registered');
-
-  preloader.style.display = 'none';
-  notFound.style.display = 'none';
-  found.style.display = 'none';
-
-  document.querySelector('.header__bar').addEventListener('submit', (e) => {
-    const searchText = e.target.elements[0].value.trim();
-    notFound.style.display = 'none';
-    found.style.display = 'none';
-    preloader.style.display = '';
-    setTimeout(() => {
-      preloader.style.display = 'none';
-      if (searchText.length > 0) {
-        found.style.display = '';
-      } else {
-        notFound.style.display = '';
-      }
-    }, 3000);
-    e.preventDefault();
-  });
-
-  document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('card__button_bookmark')) {
-      if (authentificated) {
-        e.target.classList.add('card__button_marked-bookmark');
-        e.target.classList.remove('card__button_bookmark');
-      } else {
-        showTooltip(e.target, 'Войдите, чтобы сохранять статьи', true);
-      }
-    }
-
-    if (e.target.classList.contains('popup__close')) {
-      hidePopup(e.target.closest('.popup'));
-    }
-  });
-
-  const userButton = document.querySelector('.header__menu-user');
-  userButton.addEventListener('click', () => {
-    if (userButton.classList.contains('header__menu-user_signedin')) {
-      userButton.classList.remove('header__menu-user_signedin');
-      document.querySelector('.header__user-text').textContent = 'Авторизоваться';
-      document.querySelectorAll('.header__menu li')[1].style.display = 'none';
-      authentificated = false;
-    } else {
-      showPopup(loginPopup);
-    }
-  });
-
-  registerPopup.querySelector('.popup__link').addEventListener('click', (e) => {
-    e.preventDefault();
-    showPopup(loginPopup);
-    hidePopup(registerPopup);
-  });
-
-  loginPopup.querySelector('.popup__link').addEventListener('click', (e) => {
-    e.preventDefault();
-    hidePopup(loginPopup);
-    showPopup(registerPopup);
-  });
-
-  registeredPopup.querySelector('.popup__link').addEventListener('click', (e) => {
-    e.preventDefault();
-    showPopup(loginPopup);
-    hidePopup(registeredPopup);
-  });
-
-  const registerForm = registerPopup.querySelector('form');
-  const loginForm = loginPopup.querySelector('form');
-
-  registerForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    hidePopup(registerPopup);
-    showPopup(registeredPopup);
-  });
-
-  loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    loginPopup.classList.remove('popup_is-opened');
-    userButton.classList.add('header__menu-user_signedin');
-    document.querySelector('.header__user-text').textContent = 'Грета';
-    document.querySelectorAll('.header__menu li')[1].style.display = '';
-    authentificated = true;
-  });
-
-  document.querySelectorAll('.header__menu li')[1].style.display = 'none';
-
-  [registerForm, loginForm].forEach((form) => {
-    form.addEventListener('input', () => {
-      const isValid = form.reportValidity();
-      form.querySelector('.button_form').disabled = !isValid; /* eslint-disable-line no-param-reassign */ // на этапе с JS этот код будет переделан
-    });
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new Application();
+  app.start();
 });

@@ -1,6 +1,5 @@
 @import url(__bar-input/header__bar-input.css);
 
-
 .header__bar {
   display: flex;
   flex-direction: row;

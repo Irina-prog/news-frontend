@@ -4,6 +4,7 @@
   color: #000000;
   margin: 64px auto 0;
   border: none;
+  display: none;
 }
 
 .button.button_more:hover, .button.button_more:active {
